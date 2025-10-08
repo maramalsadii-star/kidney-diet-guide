@@ -1,0 +1,1948 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل شامل للقيم الغذائية - مستشفى البكيرية العام</title>
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --primary-light: #2e86c1;
+            --primary-dark: #154360;
+            --text-color: #333;
+            --light-bg: #f0f8ff;
+            --white: #ffffff;
+            --low-bg: #d4edda;
+            --low-color: #155724;
+            --medium-bg: #fff3cd;
+            --medium-color: #856404;
+            --high-bg: #f8d7da;
+            --high-color: #721c24;
+            --sidebar-width: 25%;
+            --icon-size: 24px;
+            --icon-color: #ffffff;
+            --hover-icon-color: #e0f7fa;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* تصميم الجوال أولاً */
+        .mobile-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* شريط الجوال العلوي */
+        .mobile-header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            color: var(--white);
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .mobile-header h2 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .mobile-header p {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .nutrition-department {
+            font-size: 14px;
+            margin-top: 5px;
+            font-weight: bold;
+            color: var(--hover-icon-color);
+        }
+
+        /* العنوان الرئيسي للجوال */
+        .mobile-main-title {
+            background: linear-gradient(135deg, #0f4c75, var(--primary-light));
+            color: var(--white);
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .mobile-main-title h1 {
+            font-size: 22px;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .mobile-main-title p {
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        /* قائمة التنقل للجوال */
+        .mobile-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            padding: 10px;
+            background: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .mobile-nav a {
+            flex: 1 0 45%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 8px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .mobile-nav a:hover, .mobile-nav a.active {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .mobile-nav .icon {
+            margin-left: 8px;
+            font-size: 18px;
+        }
+
+        /* المحتوى الرئيسي */
+        .main-content {
+            flex: 1;
+            padding: 0;
+            overflow-y: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+            transition: all 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--primary-light);
+            font-size: 22px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 40px;
+            height: 2px;
+            background: var(--primary-light);
+            border-radius: 2px;
+        }
+
+        /* تصميم اللابتوب */
+        .desktop-container {
+            display: none;
+            flex-direction: row;
+            min-height: 100vh;
+        }
+
+        /* الشريط الجانبي للابتوب */
+        .desktop-sidebar {
+            width: var(--sidebar-width);
+            background: linear-gradient(180deg, var(--primary-dark), var(--primary-color), #0f4c75);
+            color: var(--white);
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .desktop-sidebar-header {
+            padding: 20px 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 10px;
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .desktop-sidebar-header h2 {
+            font-size: 22px;
+            margin-bottom: 8px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .desktop-sidebar-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .desktop-nav-links {
+            list-style: none;
+            padding: 0 10px;
+        }
+
+        .desktop-nav-links li {
+            margin-bottom: 5px;
+        }
+
+        .desktop-nav-links a {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .desktop-nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: right 0.5s;
+        }
+
+        .desktop-nav-links a:hover::before {
+            right: 100%;
+        }
+
+        .desktop-nav-links a:hover, .desktop-nav-links a.active {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            border-right: 3px solid var(--hover-icon-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .desktop-nav-links .icon {
+            margin-left: 10px;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .desktop-nav-links a:hover .icon,
+        .desktop-nav-links a.active .icon {
+            font-size: 22px;
+            transform: scale(1.05);
+            color: var(--hover-icon-color);
+        }
+
+        /* المحتوى الرئيسي للابتوب */
+        .desktop-main-content {
+            flex: 1;
+            margin-right: var(--sidebar-width);
+            padding: 0;
+            overflow-y: auto;
+        }
+
+        .desktop-main-header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color), #0f4c75);
+            color: var(--white);
+            padding: 30px 40px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .desktop-main-header::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-light), transparent);
+        }
+
+        .desktop-main-header h1 {
+            font-size: 32px;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .desktop-main-header p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        /* أنماط البحث والجدول */
+        .search-container {
+            display: flex;
+            margin: 20px 0;
+            gap: 10px;
+            flex-direction: column;
+        }
+
+        input, select {
+            flex: 1;
+            padding: 12px 15px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(26, 82, 118, 0.15);
+            background: var(--white);
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        button:hover::before {
+            left: 100%;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-direction: column;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .low-color-box {
+            background-color: var(--low-bg);
+            color: var(--low-color);
+        }
+
+        .medium-color-box {
+            background-color: var(--medium-bg);
+            color: var(--medium-color);
+        }
+
+        .high-color-box {
+            background-color: var(--high-bg);
+            color: var(--high-color);
+        }
+
+        .results-info {
+            text-align: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: linear-gradient(135deg, #e3f2fd, #f5f7fa);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            font-size: 16px;
+            font-weight: 500;
+            border-right: 3px solid var(--primary-light);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            font-size: 14px;
+        }
+
+        th, td {
+            border: 1px solid #e0e0e0;
+            text-align: center;
+            padding: 10px 8px;
+            transition: background-color 0.2s ease;
+        }
+
+        th {
+            background: linear-gradient(135deg, #e6f2ff, #b3d9ff);
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fbff;
+        }
+
+        tr:hover {
+            background-color: #e3f2fd;
+        }
+
+        .food-name {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .food-portion {
+            font-size: 12px;
+            color: #666;
+            margin-top: 3px;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 11px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+            color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* أنماط الحاسبة */
+        .calculator-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .calculator-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        .calculator-result {
+            background: linear-gradient(135deg, var(--light-bg), #e3f2fd);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        .selected-foods {
+            margin-top: 15px;
+        }
+
+        .selected-food-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+            background: var(--white);
+            border-radius: 6px;
+            margin-bottom: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .selected-food-item:hover {
+            transform: translateX(-3px);
+        }
+
+        .remove-btn {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 6px 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 12px;
+        }
+
+        .remove-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 6px rgba(220,53,69,0.3);
+        }
+
+        /* أنماط النصائح */
+        .tips-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .tip-card {
+            background: linear-gradient(135deg, var(--white), #f8f9fa);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tip-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--primary-light);
+        }
+
+        .tip-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .tip-title {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        /* البطاقة الغذائية */
+        .nutrition-label {
+            background-color: white;
+            border: 2px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+            max-width: 100%;
+            margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .nutrition-facts {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 20px;
+            border-bottom: 8px solid black;
+            padding-bottom: 4px;
+            color: #333;
+        }
+
+        .serving-size {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .calories {
+            border-bottom: 4px solid black;
+            padding-bottom: 4px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+        }
+
+        .calories-from-fat {
+            font-size: 12px;
+            margin-top: 4px;
+            text-align: right;
+            color: #666;
+        }
+
+        .nutrient {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+            padding-right: 15px;
+        }
+
+        .nutrient-indented {
+            padding-right: 30px;
+        }
+
+        .daily-value {
+            font-size: 0.8em;
+            color: #666;
+            text-align: center;
+            margin-top: 12px;
+            padding-top: 8px;
+            border-top: 1px solid #ddd;
+        }
+
+        .nutrition-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 8px 0;
+        }
+
+        .nutrition-table td {
+            border: none;
+            padding: 5px 6px;
+            text-align: right;
+        }
+
+        .nutrition-table td:first-child {
+            text-align: right;
+        }
+
+        .nutrition-table .border-bottom {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 6px;
+            margin-bottom: 6px;
+        }
+
+        .nutrition-table .thick-border {
+            border-bottom: 4px solid black;
+        }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            padding: 15px;
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #ddd;
+            background: #f8f9fa;
+            border-radius: 8px 8px 0 0;
+        }
+
+        /* تحسينات للشاشات المتوسطة والكبيرة */
+        @media (min-width: 768px) {
+            .mobile-container {
+                display: none;
+            }
+            .desktop-container {
+                display: flex;
+            }
+            .search-container {
+                flex-direction: row;
+            }
+            .filters {
+                flex-direction: row;
+            }
+            .calculator-container,
+            .tips-container {
+                grid-template-columns: 1fr 1fr;
+                display: grid;
+            }
+        }
+
+        /* تحسينات للشاشات الكبيرة */
+        @media (min-width: 1024px) {
+            .section-title {
+                font-size: 26px;
+            }
+            .container {
+                padding: 40px;
+            }
+            .section {
+                padding: 30px;
+                margin-bottom: 30px;
+            }
+        }
+
+        /* وصولية: تحسين التركيز للكيبورد */
+        a:focus, button:focus, input:focus, select:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- تصميم الجوال -->
+    <div class="mobile-container">
+        <!-- شريط الجوال العلوي -->
+        <header class="mobile-header">
+            <h2>مستشفى البكيرية العام</h2>
+            <p>Albukayriyah General Hospital</p>
+            <p>Empowered by Qassim Health Cluster</p>
+            <p class="nutrition-department">قسم التغذية العلاجية</p>
+        </header>
+
+        <!-- العنوان الرئيسي للجوال -->
+        <div class="mobile-main-title">
+            <h1>دليل شامل للقيم الغذائية للأطعمة لمرضى الكلى</h1>
+            <p>مرجع متكامل للمساعدة في إدارة النظام الغذائي لمرضى الكلى</p>
+        </div>
+
+        <!-- قائمة التنقل للجوال -->
+        <nav class="mobile-nav">
+            <a href="#" class="active" onclick="showSection('searchSection')"><span class="icon">🔍</span> البحث عن الأطعمة</a>
+            <a href="#" onclick="showSection('calculatorSection')"><span class="icon">🥗</span> حاسبة الحصص</a>
+            <a href="#" onclick="showSection('nutritionLabelSection')"><span class="icon">🏷️</span> البطاقة الغذائية</a>
+            <a href="#" onclick="showSection('shoppingTipsSection')"><span class="icon">🛒</span> نصائح التسوق</a>
+            <a href="#" onclick="showSection('cookingTipsSection')"><span class="icon">👨‍🍳</span> نصائح الطبخ</a>
+            <a href="#" onclick="showSection('aboutSection')"><span class="icon">🏥</span> نبذة عنا</a>
+        </nav>
+
+        <!-- المحتوى الرئيسي -->
+        <div class="main-content">
+            <div class="container">
+                <!-- قسم البحث -->
+                <section class="section active" id="searchSection">
+                    <h2 class="section-title">البحث في قاعدة الأطعمة</h2>
+                    <div class="search-container">
+                        <input type="text" id="searchInputMobile" placeholder="ابحث عن الطعام...">
+                        <button onclick="searchFood()">بحث</button>
+                    </div>
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label for="categoryFilterMobile">التصنيف:</label>
+                            <select id="categoryFilterMobile" onchange="filterByCategory()">
+                                <option value="all">جميع التصنيفات</option>
+                                <option value="الفواكه والعصائر">الفواكه والعصائر</option>
+                                <option value="الخضروات">الخضروات</option>
+                                <option value="اللحوم والدواجن والبيض">اللحوم والدواجن والبيض</option>
+                                <option value="المأكولات البحرية">المأكولات البحرية</option>
+                                <option value="الحبوب والخبز والمعكرونة">الحبوب والخبز والمعكرونة</option>
+                                <option value="منتجات الألبان والبدائل">منتجات الألبان والبدائل</option>
+                                <option value="المقبلات والوجبات الخفيفة">المقبلات والوجبات الخفيفة</option>
+                                <option value="الحلويات والسكريات">الحلويات والسكريات</option>
+                                <option value="المشروبات">المشروبات</option>
+                                <option value="الصلصات والتوابل والزيوت">الصلصات والتوابل والزيوت</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="nutrientFilterMobile">العنصر الغذائي:</label>
+                            <select id="nutrientFilterMobile" onchange="filterByNutrient()">
+                                <option value="all">جميع العناصر</option>
+                                <option value="sodium">الصوديوم</option>
+                                <option value="potassium">البوتاسيوم</option>
+                                <option value="phosphorus">الفوسفور</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="levelFilterMobile">المستوى:</label>
+                            <select id="levelFilterMobile" onchange="filterByLevel()">
+                                <option value="all">جميع المستويات</option>
+                                <option value="low">منخفض</option>
+                                <option value="medium">متوسط</option>
+                                <option value="high">مرتفع</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-color low-color-box"></div>
+                            <span>منخفض</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color medium-color-box"></div>
+                            <span>متوسط</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color high-color-box"></div>
+                            <span>مرتفع</span>
+                        </div>
+                    </div>
+                    <div class="results-info" id="resultsInfoMobile">أدخل كلمة للبحث أو اختر تصنيفًا لعرض الأطعمة</div>
+                    <table id="resultsTableMobile">
+                        <thead>
+                            <tr>
+                                <th>اسم الطعام والحصة</th>
+                                <th>الصوديوم (Na)</th>
+                                <th>البوتاسيوم (K)</th>
+                                <th>الفوسفور (Phos)</th>
+                                <th>التصنيف</th>
+                                <th>إضافة</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- النتائج ستظهر هنا -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- قسم الحاسبة -->
+                <section class="section" id="calculatorSection">
+                    <h2 class="section-title">حاسبة الحصص اليومية</h2>
+                    <div class="calculator-container">
+                        <div class="calculator-form">
+                            <h3>حدد احتياجاتك اليومية</h3>
+                            <div class="filter-group">
+                                <label for="maxSodiumMobile">الحد الأقصى للصوديوم (مجم/يوم):</label>
+                                <input type="number" id="maxSodiumMobile" value="2000">
+                            </div>
+                            <div class="filter-group">
+                                <label for="maxPotassiumMobile">الحد الأقصى للبوتاسيوم (مجم/يوم):</label>
+                                <input type="number" id="maxPotassiumMobile" value="2000">
+                            </div>
+                            <div class="filter-group">
+                                <label for="maxPhosphorusMobile">الحد الأقصى للفوسفور (مجم/يوم):</label>
+                                <input type="number" id="maxPhosphorusMobile" value="1000">
+                            </div>
+                            <button onclick="calculateDailyIntake()">حساب المجموع اليومي</button>
+                        </div>
+                        <div class="calculator-result">
+                            <h3>نتائج الحساب</h3>
+                            <div id="intakeResultMobile">
+                                <p>لم يتم إضافة أي أطعمة بعد</p>
+                            </div>
+                            <div class="selected-foods">
+                                <h4>الأطعمة المضافة:</h4>
+                                <div id="selectedFoodsListMobile"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- قسم البطاقة الغذائية -->
+                <section class="section" id="nutritionLabelSection">
+                    <h2 class="section-title">البطاقة الغذائية - كيفية القراءة</h2>
+                    <div class="tips-container">
+                        <article class="tip-card">
+                            <h3 class="tip-title">البطاقة الغذائية</h3>
+                            <div class="nutrition-label">
+                                <div class="nutrition-facts">الحقائق التغذوية</div>
+                                <div class="serving-size">
+                                    <strong>حجم الحصة:</strong> 1 كوب (228غ)<br>
+                                    <strong>الحصص لكل عبوة:</strong> 2
+                                </div>
+                                <div class="calories">
+                                    <span><strong>كمية السعرات الحرارية</strong> 250</span>
+                                    <div class="calories-from-fat">السعرات الحرارية من الدهون 110</div>
+                                </div>
+                                <table class="nutrition-table">
+                                    <tr>
+                                        <td><strong>إجمالي الدهون</strong> 12غ</td>
+                                        <td><strong>18%</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nutrient-indented">الدهون المشبعة 3غ</td>
+                                        <td><strong>15%</strong></td>
+                                    </tr>
+                                    <tr class="border-bottom">
+                                        <td class="nutrient-indented">الدهون المتحولة 0غ</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>الكوليسترول</strong> 30ملغ</td>
+                                        <td><strong>10%</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>الصوديوم</strong> 470ملغ</td>
+                                        <td><strong>20%</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>إجمالي الكربوهيدرات</strong> 31غ</td>
+                                        <td><strong>10%</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nutrient-indented">الألياف الغذائية 0غ</td>
+                                        <td><strong>0%</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nutrient-indented">السكريات 5غ</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr class="thick-border">
+                                        <td><strong>البروتين</strong> 5غ</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>فيتامين أ</td>
+                                        <td>4%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>فيتامين ج</td>
+                                        <td>2%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>الحديد</td>
+                                        <td>4%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>الكالسيوم</td>
+                                        <td>20%</td>
+                                    </tr>
+                                </table>
+                                <div class="daily-value">
+                                    * النسبة المئوية للقيم اليومية تعتمد على نظام غذائي يحتوي على 2000 سعرة حرارية
+                                </div>
+                            </div>
+                        </article>
+                        <article class="tip-card">
+                            <h3 class="tip-title">شرح البطاقة الغذائية</h3>
+                            <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 15px 0;">
+                                <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #ccc;">
+                                    <strong>1. حجم الحصة (Serving Size):</strong><br>
+                                    الكمية التي تعتمد عليها جميع المعلومات الغذائية الأخرى. انتبه لعدد الحصص في العبوة.
+                                </div>
+                                <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #ccc;">
+                                    <strong>2. السعرات الحرارية (Calories):</strong><br>
+                                    كمية الطاقة التي تحصل عليها من حصة واحدة. للمقارنة بين المنتجات.
+                                </div>
+                                <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #ccc;">
+                                    <strong>3. العناصر الغذائية ( Nutrients):</strong><br>
+                                    <ul>
+                                        <li><strong>الصوديوم:</strong> مهم لمرضى الكلى - اختر منتجات قليلة الصوديوم</li>
+                                        <li><strong>البوتاسيوم:</strong> غير مذكور دائماً ولكن مهم جداً لمرضى الكلى</li>
+                                        <li><strong>الفوسفور:</strong> ابحث عن كلمات مثل "فوسفات" في المكونات</li>
+                                    </ul>
+                                </div>
+                                <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #ccc;">
+                                    <strong>4. النسبة المئوية للقيمة اليومية (% Daily Value):</strong><br>
+                                    توضح النسبة التي تساهم بها الحصة في احتياجاتك اليومية:
+                                    <ul>
+                                        <li>5% أو أقل = قليل</li>
+                                        <li>20% أو أكثر = كثير</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong>نصائح لمرضى الكلى:</strong><br>
+                                    - اختر منتجات تحتوي على أقل من 5% صوديوم<br>
+                                    - تجنب المنتجات التي تحتوي على فوسفات مضافة<br>
+                                    - انتبه للبوتاسيوم في الفواكه والخضروات
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- قسم نصائح التسوق -->
+                <section class="section" id="shoppingTipsSection">
+                    <h2 class="section-title">نصائح للتسوق الصحي</h2>
+                    <div class="tips-container">
+                        <article class="tip-card">
+                            <h3 class="tip-title">قراءة البطاقة الغذائية</h3>
+                            <p>احرص على قراءة البطاقة الغذائية للتأكد من كميات البوتاسيوم، الفوسفور والصوديوم.</p>
+                            <p><strong>القيمة الغذائية اليومية التي يحتاجها مريض الغسيل الكلوي:</strong></p>
+                            <ul>
+                                <li>البوتاسيوم: 3000 مغ</li>
+                                <li>الفوسفور: 1000 مغ</li>
+                            </ul>
+                            <p><strong>مثال:</strong> إذا كان المنتج الغذائي يحتوي على %10 قيمة يومية للبوتاسيوم، ذلك يعني أن %10 من 3000 مغ تساوي 300 مغ بوتاسيوم.</p>
+                            <p><em>يجب الإحاطة بأن احتياج الشخص للبوتاسيوم والفوسفور قد يختلف على حسب تحاليل الدم من شخص إلى آخر.</em></p>
+                        </article>
+                        <article class="tip-card">
+                            <h3 class="tip-title">الابتعاد عن المنتجات المصنعة</h3>
+                            <p>ابتعد عن المنتجات المصنعة حيث أنها تحتوي على كميات جداً عالية من الصوديوم، البوتاسيوم أو الفوسفور.</p>
+                            <p><strong>نصائح إضافية:</strong></p>
+                            <ul>
+                                <li>اختر المنتجات الطازجة بدلاً من المعلبة</li>
+                                <li>ابحث عن المنتجات قليلة الصوديوم أو الخالية من الملح المضاف</li>
+                                <li>تفضل اللحوم الطازجة على المصنعة مثل النقانق واللحوم الباردة</li>
+                                <li>اختر الخبز والحبوب الكاملة باعتدال</li>
+                                <li>اقرأ قائمة المكونات وتجنب تلك التي تحتوي على فوسفات الصوديوم</li>
+                                <li>اختر منتجات الألبان قليلة الدسم باعتدال</li>
+                            </ul>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- قسم نصائح الطبخ -->
+                <section class="section" id="cookingTipsSection">
+                    <h2 class="section-title">نصائح في الطبخ</h2>
+                    <div class="tips-container">
+                        <article class="tip-card">
+                            <h3 class="tip-title">الابتعاد عن استخدام الملح</h3>
+                            <p>استخدم بدائل الملح مثل:</p>
+                            <ul>
+                                <li>الأعشاب الطازجة أو المجففة (الريحان، الزعتر، البقدونس)</li>
+                                <li>التوابل (الكمون، الكزبرة، الكركم)</li>
+                                <li>الثوم، البصل، الليمون، أو الخل</li>
+                                <li>الفلفل الأسود (باعتدال)</li>
+                                <li>مسحوق الفلفل الحار (باعتدال)</li>
+                            </ul>
+                            <p><strong>تحذير:</strong> لا تستخدم بدائل الملح التجارية التي تحتوي على كلوريد البوتاسيوم إلا باستشارة الطبيب.</p>
+                        </article>
+                        <article class="tip-card">
+                            <h3 class="tip-title">ترشيح الخضروات والبقوليات</h3>
+                            <p>عملية الترشيح تساعد على تقليل البوتاسيوم من بعض الخضروات والبقوليات التي تحتوي على كميات عالية منه.</p>
+                            <p><strong>الطريقة:</strong></p>
+                            <ol>
+                                <li>قم بتقشير الخضار وتقطيعها على شكل شرائح</li>
+                                <li>اغسلها بالماء الدافئ لبضع ثواني</li>
+                                <li>انقع الخضروات في ماء دافئ لمدة ساعة على الأقل، استخدم 4 أضعاف كمية الماء نسبة إلى كمية الخضار</li>
+                                <li>إذا أردت أن تزيد مدة نقع الخضار يجب تغيير الماء كل أربع ساعات</li>
+                                <li>عند الانتهاء من عملية الترشيح قم بغسل الخضار مرة أخرى لبضع ثواني</li>
+                                <li>أخيراً، قم بطبخ الخضار بضعف كمية الماء وتخلص منه بعد الانتهاء من الطبخ</li>
+                            </ol>
+                            <p><strong>ملاحظة:</strong> الترشيح لن يخلص الأطعمة من البوتاسيوم تماماً، فيجب أيضاً أن تكون كمية الحصص المستهلكة محددة.</p>
+                            <p><strong>الخضروات المناسبة للترشيح:</strong> البطاطس، الجزر، الباذنجان، السبانخ، البروكلي</p>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- قسم نبذة عنا -->
+                <section class="section" id="aboutSection">
+                    <h2 class="section-title">نبذة عنا</h2>
+                    <article class="tip-card">
+                        <h3 class="tip-title">قسم التغذية العلاجية - مستشفى البكيرية العام</h3>
+                        <p>نحن في قسم التغذية العلاجية بمستشفى البكيرية العام نقدم استشارات غذائية متخصصة لمرضى الكلى، نساعدكم في وضع خطط غذائية مناسبة لحالتكم الصحية مع مراعاة الاحتياجات الغذائية الفردية وتقديم الدعم المستمر لتحسين جودة الحياة.</p>
+                        <p>نهدف من خلال هذا الدليل الشامل إلى تزويدكم بالمعلومات اللازمة لاتخاذ قرارات غذائية سليمة تناسب حالتكم الصحية، مع التركيز على إدارة مستويات الصوديوم، البوتاسيوم والفوسفور في نظامكم الغذائي.</p>
+                        <p>نحن هنا لدعمكم في رحلتكم نحو حياة صحية أفضل، ولا تترددوا في التواصل معنا للحصول على استشارات غذائية مخصصة وفقاً لاحتياجاتكم الفردية.</p>
+                    </article>
+                </section>
+
+                <footer>
+                    <p>تم إنشاء هذا الدليل بناءً على توصيات الجمعية الأمريكية لمرضى الكلى (AAKP)</p>
+                    <p>يجب استشارة الطبيب أو أخصائي التغذية قبل إجراء أي تغييرات على النظام الغذائي</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- تصميم اللابتوب -->
+    <div class="desktop-container">
+        <!-- الشريط الجانبي للابتوب -->
+        <nav class="desktop-sidebar">
+            <div class="desktop-sidebar-header">
+                <h2>مستشفى البكيرية العام</h2>
+                <p>Albukayriyah General Hospital</p>
+                <p>Empowered by Qassim Health Cluster</p>
+                <p class="nutrition-department">قسم التغذية العلاجية</p>
+            </div>
+            <ul class="desktop-nav-links">
+                <li><a href="#" class="active" onclick="showSection('searchSection')"><span class="icon">🔍</span> البحث عن الأطعمة</a></li>
+                <li><a href="#" onclick="showSection('calculatorSection')"><span class="icon">🥗</span> حاسبة الحصص اليومية</a></li>
+                <li><a href="#" onclick="showSection('nutritionLabelSection')"><span class="icon">🏷️</span> البطاقة الغذائية</a></li>
+                <li><a href="#" onclick="showSection('shoppingTipsSection')"><span class="icon">🛒</span> نصائح التسوق</a></li>
+                <li><a href="#" onclick="showSection('cookingTipsSection')"><span class="icon">👨‍🍳</span> نصائح الطبخ</a></li>
+                <li><a href="#" onclick="showSection('aboutSection')"><span class="icon">🏥</span> نبذة عنا</a></li>
+            </ul>
+        </nav>
+
+        <!-- المحتوى الرئيسي للابتوب -->
+        <div class="desktop-main-content">
+            <!-- العنوان الرئيسي للابتوب -->
+            <header class="desktop-main-header">
+                <h1>دليل شامل للقيم الغذائية للأطعمة لمرضى الكلى</h1>
+                <p>مرجع متكامل للمساعدة في إدارة النظام الغذائي لمرضى الكلى</p>
+            </header>
+
+            <div class="container">
+                <!-- قسم البحث -->
+                <section class="section active" id="searchSection">
+                    <h2 class="section-title">البحث في قاعدة الأطعمة</h2>
+                    <div class="search-container">
+                        <input type="text" id="searchInputDesktop" placeholder="ابحث عن الطعام...">
+                        <button onclick="searchFood()">بحث</button>
+                    </div>
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label for="categoryFilterDesktop">التصنيف:</label>
+                            <select id="categoryFilterDesktop" onchange="filterByCategory()">
+                                <option value="all">جميع التصنيفات</option>
+                                <option value="الفواكه والعصائر">الفواكه والعصائر</option>
+                                <option value="الخضروات">الخضروات</option>
+                                <option value="اللحوم والدواجن والبيض">اللحوم والدواجن والبيض</option>
+                                <option value="المأكولات البحرية">المأكولات البحرية</option>
+                                <option value="الحبوب والخبز والمعكرونة">الحبوب والخبز والمعكرونة</option>
+                                <option value="منتجات الألبان والبدائل">منتجات الألبان والبدائل</option>
+                                <option value="المقبلات والوجبات الخفيفة">المقبلات والوجبات الخفيفة</option>
+                                <option value="الحلويات والسكريات">الحلويات والسكريات</option>
+                                <option value="المشروبات">المشروبات</option>
+                                <option value="الصلصات والتوابل والزيوت">الصلصات والتوابل والزيوت</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="nutrientFilterDesktop">العنصر الغذائي:</label>
+                            <select id="nutrientFilterDesktop" onchange="filterByNutrient()">
+                                <option value="all">جميع العناصر</option>
+                                <option value="sodium">الصوديوم</option>
+                                <option value="potassium">البوتاسيوم</option>
+                                <option value="phosphorus">الفوسفور</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="levelFilterDesktop">المستوى:</label>
+                            <select id="levelFilterDesktop" onchange="filterByLevel()">
+                                <option value="all">جميع المستويات</option>
+                                <option value="low">منخفض</option>
+                                <option value="medium">متوسط</option>
+                                <option value="high">مرتفع</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-color low-color-box"></div>
+                            <span>منخفض</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color medium-color-box"></div>
+                            <span>متوسط</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color high-color-box"></div>
+                            <span>مرتفع</span>
+                        </div>
+                    </div>
+                    <div class="results-info" id="resultsInfoDesktop">أدخل كلمة للبحث أو اختر تصنيفًا لعرض الأطعمة</div>
+                    <table id="resultsTableDesktop">
+                        <thead>
+                            <tr>
+                                <th>اسم الطعام والحصة</th>
+                                <th>الصوديوم (Na)</th>
+                                <th>البوتاسيوم (K)</th>
+                                <th>الفوسفور (Phos)</th>
+                                <th>التصنيف</th>
+                                <th>إضافة</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- النتائج ستظهر هنا -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- قسم الحاسبة -->
+                <section class="section" id="calculatorSection">
+                    <h2 class="section-title">حاسبة الحصص اليومية</h2>
+                    <div class="calculator-container">
+                        <div class="calculator-form">
+                            <h3>حدد احتياجاتك اليومية</h3>
+                            <div class="filter-group">
+                                <label for="maxSodiumDesktop">الحد الأقصى للصوديوم (مجم/يوم):</label>
+                                <input type="number" id="maxSodiumDesktop" value="2000">
+                            </div>
+                            <div class="filter-group">
+                                <label for="maxPotassiumDesktop">الحد الأقصى للبوتاسيوم (مجم/يوم):</label>
+                                <input type="number" id="maxPotassiumDesktop" value="2000">
+                            </div>
+                            <div class="filter-group">
+                                <label for="maxPhosphorusDesktop">الحد الأقصى للفوسفور (مجم/يوم):</label>
+                                <input type="number" id="maxPhosphorusDesktop" value="1000">
+                            </div>
+                            <button onclick="calculateDailyIntake()">حساب المجموع اليومي</button>
+                        </div>
+                        <div class="calculator-result">
+                            <h3>نتائج الحساب</h3>
+                            <div id="intakeResultDesktop">
+                                <p>لم يتم إضافة أي أطعمة بعد</p>
+                            </div>
+                            <div class="selected-foods">
+                                <h4>الأطعمة المضافة:</h4>
+                                <div id="selectedFoodsListDesktop"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- قسم البطاقة الغذائية -->
+                <section class="section" id="nutritionLabelSection">
+                    <h2 class="section-title">البطاقة الغذائية - كيفية القراءة</h2>
+                    <div class="tips-container">
+                        <article class="tip-card">
+                            <h3 class="tip-title">البطاقة الغذائية</h3>
+                            <div class="nutrition-label">
+                                <div class="nutrition-facts">الحقائق التغذوية</div>
+                                <div class="serving-size">
+                                    <strong>حجم الحصة:</strong> 1 كوب (228غ)<br>
+                                    <strong>الحصص لكل عبوة:</strong> 2
+                                </div>
+                                <div class="calories">
+                                    <span><strong>كمية السعرات الحرارية</strong> 250</span>
+                                    <div class="calories-from-fat">السعرات الحرارية من الدهون 110</div>
+                                </div>
+                                <table class="nutrition-table">
+                                    <tr>
+                                        <td><strong>إجمالي الدهون</strong> 12غ</td>
+                                        <td><strong>18%</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nutrient-indented">الدهون المشبعة 3غ</td>
+                                        <td><strong>15%</strong></td>
+                                    </tr>
+                                    <tr class="border-bottom">
+                                        <td class="nutrient-indented">الدهون المتحولة 0غ</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>الكوليسترول</strong> 30ملغ</td>
+                                        <td><strong>10%</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>الصوديوم</strong> 470ملغ</td>
+                                        <td><strong>20%</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>إجمالي الكربوهيدرات</strong> 31غ</td>
+                                        <td><strong>10%</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nutrient-indented">الألياف الغذائية 0غ</td>
+                                        <td><strong>0%</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nutrient-indented">السكريات 5غ</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr class="thick-border">
+                                        <td><strong>البروتين</strong> 5غ</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>فيتامين أ</td>
+                                        <td>4%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>فيتامين ج</td>
+                                        <td>2%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>الحديد</td>
+                                        <td>4%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>الكالسيوم</td>
+                                        <td>20%</td>
+                                    </tr>
+                                </table>
+                                <div class="daily-value">
+                                    * النسبة المئوية للقيم اليومية تعتمد على نظام غذائي يحتوي على 2000 سعرة حرارية
+                                </div>
+                            </div>
+                        </article>
+                        <article class="tip-card">
+                            <h3 class="tip-title">شرح البطاقة الغذائية</h3>
+                            <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 15px 0;">
+                                <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #ccc;">
+                                    <strong>1. حجم الحصة (Serving Size):</strong><br>
+                                    الكمية التي تعتمد عليها جميع المعلومات الغذائية الأخرى. انتبه لعدد الحصص في العبوة.
+                                </div>
+                                <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #ccc;">
+                                    <strong>2. السعرات الحرارية (Calories):</strong><br>
+                                    كمية الطاقة التي تحصل عليها من حصة واحدة. للمقارنة بين المنتجات.
+                                </div>
+                                <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #ccc;">
+                                    <strong>3. العناصر الغذائية ( Nutrients):</strong><br>
+                                    <ul>
+                                        <li><strong>الصوديوم:</strong> مهم لمرضى الكلى - اختر منتجات قليلة الصوديوم</li>
+                                        <li><strong>البوتاسيوم:</strong> غير مذكور دائماً ولكن مهم جداً لمرضى الكلى</li>
+                                        <li><strong>الفوسفور:</strong> ابحث عن كلمات مثل "فوسفات" في المكونات</li>
+                                    </ul>
+                                </div>
+                                <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #ccc;">
+                                    <strong>4. النسبة المئوية للقيمة اليومية (% Daily Value):</strong><br>
+                                    توضح النسبة التي تساهم بها الحصة في احتياجاتك اليومية:
+                                    <ul>
+                                        <li>5% أو أقل = قليل</li>
+                                        <li>20% أو أكثر = كثير</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong>نصائح لمرضى الكلى:</strong><br>
+                                    - اختر منتجات تحتوي على أقل من 5% صوديوم<br>
+                                    - تجنب المنتجات التي تحتوي على فوسفات مضافة<br>
+                                    - انتبه للبوتاسيوم في الفواكه والخضروات
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- قسم نصائح التسوق -->
+                <section class="section" id="shoppingTipsSection">
+                    <h2 class="section-title">نصائح للتسوق الصحي</h2>
+                    <div class="tips-container">
+                        <article class="tip-card">
+                            <h3 class="tip-title">قراءة البطاقة الغذائية</h3>
+                            <p>احرص على قراءة البطاقة الغذائية للتأكد من كميات البوتاسيوم، الفوسفور والصوديوم.</p>
+                            <p><strong>القيمة الغذائية اليومية التي يحتاجها مريض الغسيل الكلوي:</strong></p>
+                            <ul>
+                                <li>البوتاسيوم: 3000 مغ</li>
+                                <li>الفوسفور: 1000 مغ</li>
+                            </ul>
+                            <p><strong>مثال:</strong> إذا كان المنتج الغذائي يحتوي على %10 قيمة يومية للبوتاسيوم، ذلك يعني أن %10 من 3000 مغ تساوي 300 مغ بوتاسيوم.</p>
+                            <p><em>يجب الإحاطة بأن احتياج الشخص للبوتاسيوم والفوسفور قد يختلف على حسب تحاليل الدم من شخص إلى آخر.</em></p>
+                        </article>
+                        <article class="tip-card">
+                            <h3 class="tip-title">الابتعاد عن المنتجات المصنعة</h3>
+                            <p>ابتعد عن المنتجات المصنعة حيث أنها تحتوي على كميات جداً عالية من الصوديوم، البوتاسيوم أو الفوسفور.</p>
+                            <p><strong>نصائح إضافية:</strong></p>
+                            <ul>
+                                <li>اختر المنتجات الطازجة بدلاً من المعلبة</li>
+                                <li>ابحث عن المنتجات قليلة الصوديوم أو الخالية من الملح المضاف</li>
+                                <li>تفضل اللحوم الطازجة على المصنعة مثل النقانق واللحوم الباردة</li>
+                                <li>اختر الخبز والحبوب الكاملة باعتدال</li>
+                                <li>اقرأ قائمة المكونات وتجنب تلك التي تحتوي على فوسفات الصوديوم</li>
+                                <li>اختر منتجات الألبان قليلة الدسم باعتدال</li>
+                            </ul>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- قسم نصائح الطبخ -->
+                <section class="section" id="cookingTipsSection">
+                    <h2 class="section-title">نصائح في الطبخ</h2>
+                    <div class="tips-container">
+                        <article class="tip-card">
+                            <h3 class="tip-title">الابتعاد عن استخدام الملح</h3>
+                            <p>استخدم بدائل الملح مثل:</p>
+                            <ul>
+                                <li>الأعشاب الطازجة أو المجففة (الريحان، الزعتر، البقدونس)</li>
+                                <li>التوابل (الكمون، الكزبرة، الكركم)</li>
+                                <li>الثوم، البصل، الليمون، أو الخل</li>
+                                <li>الفلفل الأسود (باعتدال)</li>
+                                <li>مسحوق الفلفل الحار (باعتدال)</li>
+                            </ul>
+                            <p><strong>تحذير:</strong> لا تستخدم بدائل الملح التجارية التي تحتوي على كلوريد البوتاسيوم إلا باستشارة الطبيب.</p>
+                        </article>
+                        <article class="tip-card">
+                            <h3 class="tip-title">ترشيح الخضروات والبقوليات</h3>
+                            <p>عملية الترشيح تساعد على تقليل البوتاسيوم من بعض الخضروات والبقوليات التي تحتوي على كميات عالية منه.</p>
+                            <p><strong>الطريقة:</strong></p>
+                            <ol>
+                                <li>قم بتقشير الخضار وتقطيعها على شكل شرائح</li>
+                                <li>اغسلها بالماء الدافئ لبضع ثواني</li>
+                                <li>انقع الخضروات في ماء دافئ لمدة ساعة على الأقل، استخدم 4 أضعاف كمية الماء نسبة إلى كمية الخضار</li>
+                                <li>إذا أردت أن تزيد مدة نقع الخضار يجب تغيير الماء كل أربع ساعات</li>
+                                <li>عند الانتهاء من عملية الترشيح قم بغسل الخضار مرة أخرى لبضع ثواني</li>
+                                <li>أخيراً، قم بطبخ الخضار بضعف كمية الماء وتخلص منه بعد الانتهاء من الطبخ</li>
+                            </ol>
+                            <p><strong>ملاحظة:</strong> الترشيح لن يخلص الأطعمة من البوتاسيوم تماماً، فيجب أيضاً أن تكون كمية الحصص المستهلكة محددة.</p>
+                            <p><strong>الخضروات المناسبة للترشيح:</strong> البطاطس، الجزر، الباذنجان، السبانخ، البروكلي</p>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- قسم نبذة عنا -->
+                <section class="section" id="aboutSection">
+                    <h2 class="section-title">نبذة عنا</h2>
+                    <article class="tip-card">
+                        <h3 class="tip-title">قسم التغذية العلاجية - مستشفى البكيرية العام</h3>
+                        <p>نحن في قسم التغذية العلاجية بمستشفى البكيرية العام نقدم استشارات غذائية متخصصة لمرضى الكلى، نساعدكم في وضع خطط غذائية مناسبة لحالتكم الصحية مع مراعاة الاحتياجات الغذائية الفردية وتقديم الدعم المستمر لتحسين جودة الحياة.</p>
+                        <p>نهدف من خلال هذا الدليل الشامل إلى تزويدكم بالمعلومات اللازمة لاتخاذ قرارات غذائية سليمة تناسب حالتكم الصحية، مع التركيز على إدارة مستويات الصوديوم، البوتاسيوم والفوسفور في نظامكم الغذائي.</p>
+                        <p>نحن هنا لدعمكم في رحلتكم نحو حياة صحية أفضل، ولا تترددوا في التواصل معنا للحصول على استشارات غذائية مخصصة وفقاً لاحتياجاتكم الفردية.</p>
+                    </article>
+                </section>
+
+                <footer>
+                    <p>تم إنشاء هذا الدليل بناءً على توصيات الجمعية الأمريكية لمرضى الكلى (AAKP)</p>
+                    <p>يجب استشارة الطبيب أو أخصائي التغذية قبل إجراء أي تغييرات على النظام الغذائي</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // قاعدة البيانات الغذائية الكاملة (179 صنف)
+        const foods = [
+            // الفواكه والعصائر (33 صنفًا)
+            { name: "تفاح", sodium: "🟢 1 مجم", potassium: "🟡 195 مجم", phosphorus: "🟢 20 مجم", portion: "1 حبة متوسطة", category: "الفواكه والعصائر", sodiumValue: 1, potassiumValue: 195, phosphorusValue: 20 },
+            { name: "عصير تفاح", sodium: "🟢 5 مجم", potassium: "🟡 125 مجم", phosphorus: "🟢 8.5 مجم", portion: "1/2 كوب", category: "الفواكه والعصائر", sodiumValue: 5, potassiumValue: 125, phosphorusValue: 8.5 },
+            { name: "مهلبية التفاح محلاة", sodium: "🟢 2 مجم", potassium: "🟢 85 مجم", phosphorus: "🟢 7 مجم", portion: "1/2 كوب", category: "الفواكه والعصائر", sodiumValue: 2, potassiumValue: 85, phosphorusValue: 7 },
+            { name: "مشمش معلب في شراب خفيف", sodium: "🟢 10 مجم", potassium: "🔴 331 مجم", phosphorus: "🟢 31 مجم", portion: "1 كوب", category: "الفواكه والعصائر", sodiumValue: 10, potassiumValue: 331, phosphorusValue: 31 },
+            { name: "مشمش طازج", sodium: "🟢 2 مجم", potassium: "🔴 401 مجم", phosphorus: "🟢 36 مجم", portion: "1 كوب", category: "الفواكه والعصائر", sodiumValue: 2, potassiumValue: 401, phosphorusValue: 36 },
+            { name: "موز", sodium: "🟢 1 مجم", potassium: "🔴 422 مجم", phosphorus: "🟢 26 مجم", portion: "1 حبة متوسطة", category: "الفواكه والعصائر", sodiumValue: 1, potassiumValue: 422, phosphorusValue: 26 },
+            { name: "توت أسود", sodium: "🟢 1 مجم", potassium: "🟡 175 مجم", phosphorus: "🟢 24 مجم", portion: "3/4 كوب", category: "الفواكه والعصائر", sodiumValue: 1, potassiumValue: 175, phosphorusValue: 24 },
+            { name: "توت أزرق", sodium: "🟢 1 مجم", potassium: "🟢 85 مجم", phosphorus: "🟢 13 مجم", portion: "3/4 كوب", category: "الفواكه والعصائر", sodiumValue: 1, potassiumValue: 85, phosphorusValue: 13 },
+            { name: "شمام", sodium: "🟢 25 مجم", potassium: "🔴 417 مجم", phosphorus: "🟢 23 مجم", portion: "1 كوب", category: "الفواكه والعصائر", sodiumValue: 25, potassiumValue: 417, phosphorusValue: 23 },
+            { name: "كرز", sodium: "🟢 0 مجم", potassium: "🔴 342 مجم", phosphorus: "🟢 32 مجم", portion: "1 كوب", category: "الفواكه والعصائر", sodiumValue: 0, potassiumValue: 342, phosphorusValue: 32 },
+            { name: "توت بري", sodium: "🟢 2 مجم", potassium: "🟢 85 مجم", phosphorus: "🟢 13 مجم", portion: "1 كوب", category: "الفواكه والعصائر", sodiumValue: 2, potassiumValue: 85, phosphorusValue: 13 },
+            { name: "تمر", sodium: "🟢 0 مجم", potassium: "🟡 47 مجم", phosphorus: "🟢 4 مجم", portion: "1 حبة", category: "الفواكه والعصائر", sodiumValue: 0, potassiumValue: 47, phosphorusValue: 4 },
+            { name: "تين مجفف", sodium: "🟢 2 مجم", potassium: "🟡 114 مجم", phosphorus: "🟢 11 مجم", portion: "2 حبة", category: "الفواكه والعصائر", sodiumValue: 2, potassiumValue: 114, phosphorusValue: 11 },
+            { name: "جريب فروت", sodium: "🟢 0 مجم", potassium: "🟡 178 مجم", phosphorus: "🟢 10 مجم", portion: "1/2 حبة متوسطة", category: "الفواكه والعصائر", sodiumValue: 0, potassiumValue: 178, phosphorusValue: 10 },
+            { name: "عنب", sodium: "🟢 2 مجم", potassium: "🟡 176 مجم", phosphorus: "🟢 9 مجم", portion: "1 كوب", category: "الفواكه والعصائر", sodiumValue: 2, potassiumValue: 176, phosphorusValue: 9 },
+            { name: "جوافة", sodium: "🟢 1 مجم", potassium: "🔴 229 مجم", phosphorus: "🟢 22 مجم", portion: "1 حبة متوسطة", category: "الفواكه والعصائر", sodiumValue: 1, potassiumValue: 229, phosphorusValue: 22 },
+            { name: "شمام عسلي", sodium: "🟢 31 مجم", potassium: "🔴 388 مجم", phosphorus: "🟢 19 مجم", portion: "1 كوب", category: "الفواكه والعصائر", sodiumValue: 31, potassiumValue: 388, phosphorusValue: 19 },
+            { name: "كيوي", sodium: "🟢 2 مجم", potassium: "🔴 215 مجم", phosphorus: "🟢 23 مجم", portion: "1 حبة متوسطة", category: "الفواكه والعصائر", sodiumValue: 2, potassiumValue: 215, phosphorusValue: 23 },
+            { name: "ليمون", sodium: "🟢 1 مجم", potassium: "🟢 80 مجم", phosphorus: "🟢 9 مجم", portion: "1 حبة متوسطة", category: "الفواكه والعصائر", sodiumValue: 1, potassiumValue: 80, phosphorusValue: 9 },
+            { name: "مانجو", sodium: "🟢 3 مجم", potassium: "🔴 564 مجم", phosphorus: "🟢 47 مجم", portion: "1 حبة متوسطة", category: "الفواكه والعصائر", sodiumValue: 3, potassiumValue: 564, phosphorusValue: 47 },
+            { name: "برتقال", sodium: "🟢 1 مجم", potassium: "🔴 232 مجم", phosphorus: "🟢 32 مجم", portion: "1 حبة متوسطة", category: "الفواكه والعصائر", sodiumValue: 1, potassiumValue: 232, phosphorusValue: 32 },
+            { name: "بابايا", sodium: "🟢 13 مجم", potassium: "🔴 286 مجم", phosphorus: "🟢 16 مجم", portion: "1 حبة صغيرة", category: "الفواكه والعصائر", sodiumValue: 13, potassiumValue: 286, phosphorusValue: 16 },
+            { name: "خوخ", sodium: "🟢 0 مجم", potassium: "🔴 285 مجم", phosphorus: "🟢 30 مجم", portion: "1 حبة متوسطة", category: "الفواكه والعصائر", sodiumValue: 0, potassiumValue: 285, phosphorusValue: 30 },
+            { name: "خوخ معلب في شراب خفيف", sodium: "🟢 6 مجم", potassium: "🟢 91 مجم", phosphorus: "🟢 14 مجم", portion: "1/2 كوب", category: "الفواكه والعصائر", sodiumValue: 6, potassiumValue: 91, phosphorusValue: 14 },
+            { name: "كمثرى", sodium: "🟢 2 مجم", potassium: "🔴 212 مجم", phosphorus: "🟢 20 مجم", portion: "1 حبة متوسطة", category: "الفواكه والعصائر", sodiumValue: 2, potassiumValue: 212, phosphorusValue: 20 },
+            { name: "كمثرى معلب", sodium: "🟢 2 مجم", potassium: "🟢 56 مجم", phosphorus: "🟢 9 مجم", portion: "1/2 كوب", category: "الفواكه والعصائر", sodiumValue: 2, potassiumValue: 56, phosphorusValue: 9 },
+            { name: "أناناس", sodium: "🟢 2 مجم", potassium: "🟡 180 مجم", phosphorus: "🟢 13 مجم", portion: "1 كوب", category: "الفواكه والعصائر", sodiumValue: 2, potassiumValue: 180, phosphorusValue: 13 },
+            { name: "أناناس معلب", sodium: "🟢 1 مجم", potassium: "🟡 132 مجم", phosphorus: "🟢 9 مجم", portion: "1/2 كوب", category: "الفواكه والعصائر", sodiumValue: 1, potassiumValue: 132, phosphorusValue: 9 },
+            { name: "برقوق مجفف", sodium: "🟢 0 مجم", potassium: "🟡 70 مجم", phosphorus: "🟢 7 مجم", portion: "1 حبة", category: "الفواكه والعصائر", sodiumValue: 0, potassiumValue: 70, phosphorusValue: 7 },
+            { name: "زبيب", sodium: "🟢 16 مجم", potassium: "🔴 1086 مجم", phosphorus: "🟡 146 مجم", portion: "1 كوب", category: "الفواكه والعصائر", sodiumValue: 16, potassiumValue: 1086, phosphorusValue: 146 },
+            { name: "فراولة", sodium: "🟢 2 مجم", potassium: "🔴 254 مجم", phosphorus: "🟢 40 مجم", portion: "1 كوب", category: "الفواكه والعصائر", sodiumValue: 2, potassiumValue: 254, phosphorusValue: 40 },
+            { name: "بطيخ", sodium: "🟢 2 مجم", potassium: "🟡 170 مجم", phosphorus: "🟢 17 مجم", portion: "1 كوب", category: "الفواكه والعصائر", sodiumValue: 2, potassiumValue: 170, phosphorusValue: 17 },
+
+            // الخضروات (30 صنفًا)
+            { name: "خرشوف", sodium: "🟢 72 مجم", potassium: "🔴 341 مجم", phosphorus: "🟢 88 مجم", portion: "1 حبة متوسطة", category: "الخضروات", sodiumValue: 72, potassiumValue: 341, phosphorusValue: 88 },
+            { name: "هليون معلب", sodium: "🔴 695 مجم", potassium: "🔴 416 مجم", phosphorus: "🟡 104 مجم", portion: "1 كوب", category: "الخضروات", sodiumValue: 695, potassiumValue: 416, phosphorusValue: 104 },
+            { name: "هليون مجمد مسلوق", sodium: "🟢 5 مجم", potassium: "🔴 308 مجم", phosphorus: "🟢 88 مجم", portion: "1 كوب", category: "الخضروات", sodiumValue: 5, potassiumValue: 308, phosphorusValue: 88 },
+            { name: "أفوكادو (كاليفورنيا)", sodium: "🟢 5 مجم", potassium: "🟢 92 مجم", phosphorus: "🟢 31 مجم", portion: "1/4 كوب", category: "الخضروات", sodiumValue: 5, potassiumValue: 92, phosphorusValue: 31 },
+            { name: "أفوكادو (فلوريدا)", sodium: "🟢 1 مجم", potassium: "🔴 292 مجم", phosphorus: "🟢 23 مجم", portion: "1/4 كوب", category: "الخضروات", sodiumValue: 1, potassiumValue: 292, phosphorusValue: 23 },
+            { name: "بنجر معلب", sodium: "🟢 165 مجم", potassium: "🟡 126 مجم", phosphorus: "🟢 14 مجم", portion: "1/2 كوب", category: "الخضروات", sodiumValue: 165, potassiumValue: 126, phosphorusValue: 14 },
+            { name: "بروكلي نيء", sodium: "🟢 15 مجم", potassium: "🟡 139 مجم", phosphorus: "🟢 29 مجم", portion: "1/2 كوب", category: "الخضروات", sodiumValue: 15, potassiumValue: 139, phosphorusValue: 29 },
+            { name: "بروكلي مجمد مطبوخ", sodium: "🟢 20 مجم", potassium: "🔴 294 مجم", phosphorus: "🟢 96 مجم", portion: "1 كوب", category: "الخضروات", sodiumValue: 20, potassiumValue: 294, phosphorusValue: 96 },
+            { name: "كرنب بروكسل", sodium: "🟢 22 مجم", potassium: "🔴 342 مجم", phosphorus: "🟢 61 مجم", portion: "1 كوب", category: "الخضروات", sodiumValue: 22, potassiumValue: 342, phosphorusValue: 61 },
+            { name: "كرنب بروكسل مجمد مسلوق", sodium: "🟢 23 مجم", potassium: "🔴 446 مجم", phosphorus: "🟢 87 مجم", portion: "1 كوب", category: "الخضروات", sodiumValue: 23, potassiumValue: 446, phosphorusValue: 87 },
+            { name: "ملفوف", sodium: "🟢 6 مجم", potassium: "🟢 60 مجم", phosphorus: "🟢 9 مجم", portion: "1/2 كوب", category: "الخضروات", sodiumValue: 6, potassiumValue: 60, phosphorusValue: 9 },
+            { name: "جزر", sodium: "🟢 50 مجم", potassium: "🔴 230 مجم", phosphorus: "🟢 25 مجم", portion: "1 حبة كبيرة", category: "الخضروات", sodiumValue: 50, potassiumValue: 230, phosphorusValue: 25 },
+            { name: "قرنبيط", sodium: "🟢 8 مجم", potassium: "🟡 160 مجم", phosphorus: "🟢 24 مجم", portion: "1/2 كوب", category: "الخضروات", sodiumValue: 8, potassiumValue: 160, phosphorusValue: 24 },
+            { name: "كرفس", sodium: "🟢 32 مجم", potassium: "🟡 166 مجم", phosphorus: "🟢 15 مجم", portion: "1 ساق كبيرة", category: "الخضروات", sodiumValue: 32, potassiumValue: 166, phosphorusValue: 15 },
+            { name: "الكرنب المسلوق", sodium: "🟢 85 مجم", potassium: "🔴 427 مجم", phosphorus: "🟢 46 مجم", portion: "1 كوب", category: "الخضروات", sodiumValue: 85, potassiumValue: 427, phosphorusValue: 46 },
+            { name: "خيار (بدون قشر)", sodium: "🟢 6 مجم", potassium: "🟢 381 مجم", phosphorus: "🟢 59 مجم", portion: "1 حبة كبيرة", category: "الخضروات", sodiumValue: 6, potassiumValue: 381, phosphorusValue: 59 },
+            { name: "باذنجان مسلوق", sodium: "🟢 1 مجم", potassium: "🟡 122 مجم", phosphorus: "🟢 11 مجم", portion: "1 كوب", category: "الخضروات", sodiumValue: 1, potassiumValue: 122, phosphorusValue: 11 },
+            { name: "فطر", sodium: "🟢 4 مجم", potassium: "🟡 223 مجم", phosphorus: "🟢 60 مجم", portion: "1 كوب", category: "الخضروات", sodiumValue: 4, potassiumValue: 223, phosphorusValue: 60 },
+            { name: "بامية مجمدة مطبوخة", sodium: "🟢 3 مجم", potassium: "🟡 169 مجم", phosphorus: "🟢 34 مجم", portion: "1/2 كوب", category: "الخضروات", sodiumValue: 3, potassiumValue: 169, phosphorusValue: 34 },
+            { name: "بصل", sodium: "🟢 3 مجم", potassium: "🟡 117 مجم", phosphorus: "🟢 23 مجم", portion: "1/2 كوب", category: "الخضروات", sodiumValue: 3, potassiumValue: 117, phosphorusValue: 23 },
+            { name: "فلفل رومي", sodium: "🟢 5 مجم", potassium: "🟡 251 مجم", phosphorus: "🟢 31 مجم", portion: "1 حبة متوسطة", category: "الخضروات", sodiumValue: 5, potassiumValue: 251, phosphorusValue: 31 },
+            { name: "سبانخ مجمدة مسلوقة", sodium: "🟢 184 مجم", potassium: "🔴 574 مجم", phosphorus: "🟢 95 مجم", portion: "1 كوب", category: "الخضروات", sodiumValue: 184, potassiumValue: 574, phosphorusValue: 95 },
+            { name: "سبانخ طازجة", sodium: "🟢 24 مجم", potassium: "🟡 167 مجم", phosphorus: "🟢 15 مجم", portion: "1 كوب", category: "الخضروات", sodiumValue: 24, potassiumValue: 167, phosphorusValue: 15 },
+            { name: "سبانخ معلب", sodium: "🟢 176 مجم", potassium: "🔴 538 مجم", phosphorus: "🟢 75 مجم", portion: "1 كوب", category: "الخضروات", sodiumValue: 176, potassiumValue: 538, phosphorusValue: 75 },
+            { name: "كوسا", sodium: "🟢 2 مجم", potassium: "🔴 296 مجم", phosphorus: "🟢 43 مجم", portion: "1 كوب", category: "الخضروات", sodiumValue: 2, potassiumValue: 296, phosphorusValue: 43 },
+            { name: "كوسا مسلوقة", sodium: "🟢 5 مجم", potassium: "🔴 475 مجم", phosphorus: "🟢 67 مجم", portion: "1 كوب", category: "الخضروات", sodiumValue: 5, potassiumValue: 475, phosphorusValue: 67 },
+            { name: "طماطم", sodium: "🟢 16 مجم", potassium: "🔴 251 مجم", phosphorus: "🟢 34 مجم", portion: "1 حبة متوسطة", category: "الخضروات", sodiumValue: 16, potassiumValue: 251, phosphorusValue: 34 },
+            { name: "طماطم معلب", sodium: "🔴 343 مجم", potassium: "🔴 451 مجم", phosphorus: "🟢 46 مجم", portion: "1 كوب", category: "الخضروات", sodiumValue: 343, potassiumValue: 451, phosphorusValue: 46 },
+            { name: "خضروات مجمدة متنوعة", sodium: "🟢 32 مجم", potassium: "🟡 154 مجم", phosphorus: "🟢 46 مجم", portion: "1/2 كوب", category: "الخضروات", sodiumValue: 32, potassiumValue: 154, phosphorusValue: 46 },
+
+            // اللحوم والدواجن والبيض (16 صنفًا)
+            { name: "لحم الديك الرومي المقدد", sodium: "🔴 754 مجم", potassium: "🟡 130 مجم", phosphorus: "🟡 152 مجم", portion: "3 شرائح متوسطة", category: "اللحوم والدواجن والبيض", sodiumValue: 754, potassiumValue: 130, phosphorusValue: 152 },
+            { name: "لحم بقري مفروم (10% دهون)", sodium: "🟢 58 مجم", potassium: "🔴 283 مجم", phosphorus: "🟡 172 مجم", portion: "85 جرام", category: "اللحوم والدواجن والبيض", sodiumValue: 58, potassiumValue: 283, phosphorusValue: 172 },
+            { name: "لحم بقري (سيرلون)", sodium: "🟢 52 مجم", potassium: "🔴 272 مجم", phosphorus: "🟡 176 مجم", portion: "85 جرام", category: "اللحوم والدواجن والبيض", sodiumValue: 52, potassiumValue: 272, phosphorusValue: 176 },
+            { name: "لحم ضأن (فخذ)", sodium: "🟢 55 مجم", potassium: "🔴 277 مجم", phosphorus: "🟡 168 مجم", portion: "85 جرام", category: "اللحوم والدواجن والبيض", sodiumValue: 55, potassiumValue: 277, phosphorusValue: 168 },
+            { name: "لحم ضأن (شرائح)", sodium: "🟢 65 مجم", potassium: "🔴 278 مجم", phosphorus: "🟡 167 مجم", portion: "85 جرام", category: "اللحوم والدواجن والبيض", sodiumValue: 65, potassiumValue: 278, phosphorusValue: 167 },
+            { name: "لحم ضأن (شرائح محمورة)", sodium: "🟢 54 مجم", potassium: "🔴 209 مجم", phosphorus: "🟡 153 مجم", portion: "85 جرام", category: "اللحوم والدواجن والبيض", sodiumValue: 54, potassiumValue: 209, phosphorusValue: 153 },
+            { name: "بيضة", sodium: "🟢 71 مجم", potassium: "🟡 69 مجم", phosphorus: "🟢 99 مجم", portion: "1 حبة كبيرة", category: "اللحوم والدواجن والبيض", sodiumValue: 71, potassiumValue: 69, phosphorusValue: 99 },
+            { name: "بياض البيض فقط", sodium: "🟢 55 مجم", potassium: "🟢 54 مجم", phosphorus: "🟢 5 مجم", portion: "1 حبة كبيرة", category: "اللحوم والدواجن والبيض", sodiumValue: 55, potassiumValue: 54, phosphorusValue: 5 },
+            { name: "بديل البيض (سائل)", sodium: "🟢 119 مجم", potassium: "🟡 128 مجم", phosphorus: "🟢 43 مجم", portion: "1/4 كوب", category: "اللحوم والدواجن والبيض", sodiumValue: 119, potassiumValue: 128, phosphorusValue: 43 },
+            { name: "دجاج (لحم غامق، مقلي)", sodium: "🔴 347 مجم", potassium: "🔴 202 مجم", phosphorus: "🟡 152 مجم", portion: "85 جرام", category: "اللحوم والدواجن والبيض", sodiumValue: 347, potassiumValue: 202, phosphorusValue: 152 },
+            { name: "دجاج (لحم غامق، محمور، بلا جلد)", sodium: "🔴 347 مجم", potassium: "🔴 202 مجم", phosphorus: "🟡 152 مجم", portion: "85 جرام", category: "اللحوم والدواجن والبيض", sodiumValue: 347, potassiumValue: 202, phosphorusValue: 152 },
+            { name: "دجاج (لحم فاتح، مقلي)", sodium: "🔴 374 مجم", potassium: "🟡 160 مجم", phosphorus: "🟡 129 مجم", portion: "85 جرام", category: "اللحوم والدواجن والبيض", sodiumValue: 374, potassiumValue: 160, phosphorusValue: 129 },
+            { name: "دجاج (لحم فاتح، محمور، بلا جلد)", sodium: "🔴 282 مجم", potassium: "🔴 218 مجم", phosphorus: "🟡 123 مجم", portion: "85 جرام", category: "اللحوم والدواجن والبيض", sodiumValue: 282, potassiumValue: 218, phosphorusValue: 123 },
+            { name: "ديك رومي (صدر، محمور)", sodium: "🟢 77 مجم", potassium: "🔴 332 مجم", phosphorus: "🔴 242 مجم", portion: "85 جرام", category: "اللحوم والدواجن والبيض", sodiumValue: 77, potassiumValue: 332, phosphorusValue: 242 },
+            { name: "لحم عجل (سيرلون مطهو ببطء)", sodium: "🟢 67 مجم", potassium: "🔴 273 مجم", phosphorus: "🔴 207 مجم", portion: "85 جرام", category: "اللحوم والدواجن والبيض", sodiumValue: 67, potassiumValue: 273, phosphorusValue: 207 },
+            { name: "لحم عجل (سيرلون محمور)", sodium: "🟢 71 مجم", potassium: "🔴 298 مجم", phosphorus: "🟡 190 مجم", portion: "85 جرام", category: "اللحوم والدواجن والبيض", sodiumValue: 71, potassiumValue: 298, phosphorusValue: 190 },
+
+            // المأكولات البحرية (15 صنفًا)
+            { name: "محار مقلي", sodium: "🔴 375 مجم", potassium: "🔴 283 مجم", phosphorus: "🟡 173 مجم", portion: "9 حبات صغيرة", category: "المأكولات البحرية", sodiumValue: 375, potassiumValue: 283, phosphorusValue: 173 },
+            { name: "محار مطبوخ", sodium: "🔴 897 مجم", potassium: "🔴 665 مجم", phosphorus: "🔴 298 مجم", portion: "19 حبة صغيرة", category: "المأكولات البحرية", sodiumValue: 897, potassiumValue: 665, phosphorusValue: 298 },
+            { name: "سلطعون أزرق مطبوخ", sodium: "🟢 336 مجم", potassium: "🔴 220 مجم", phosphorus: "🔴 199 مجم", portion: "85 جرام", category: "المأكولات البحرية", sodiumValue: 336, potassiumValue: 220, phosphorusValue: 199 },
+            { name: "سلطعون أزرق نيء", sodium: "🟢 249 مجم", potassium: "🔴 280 مجم", phosphorus: "🔴 195 مجم", portion: "85 جرام", category: "المأكولات البحرية", sodiumValue: 249, potassiumValue: 280, phosphorusValue: 195 },
+            { name: "سمك موسى مطبوخ", sodium: "🟢 309 مجم", potassium: "🟡 167 مجم", phosphorus: "🔴 263 مجم", portion: "85 جرام", category: "المأكولات البحرية", sodiumValue: 309, potassiumValue: 167, phosphorusValue: 263 },
+            { name: "استاكوزا مطبوخة", sodium: "🟢 413 مجم", potassium: "🔴 196 مجم", phosphorus: "🟡 157 مجم", portion: "85 جرام", category: "المأكولات البحرية", sodiumValue: 413, potassiumValue: 196, phosphorusValue: 157 },
+            { name: "محار نيء", sodium: "🔴 318 مجم", potassium: "🔴 504 مجم", phosphorus: "🔴 486 مجم", portion: "6 حبات متوسطة", category: "المأكولات البحرية", sodiumValue: 318, potassiumValue: 504, phosphorusValue: 486 },
+            { name: "أسقلوب مقلي", sodium: "🟢 303 مجم", potassium: "🟢 97 مجم", phosphorus: "🟢 96 مجم", portion: "2 حبة كبيرة", category: "المأكولات البحرية", sodiumValue: 303, potassiumValue: 97, phosphorusValue: 96 },
+            { name: "أسقلوب نيء", sodium: "🟢 118 مجم", potassium: "🟢 62 مجم", phosphorus: "🟢 100 مجم", portion: "5 حبات صغيرة", category: "المأكولات البحرية", sodiumValue: 118, potassiumValue: 62, phosphorusValue: 100 },
+            { name: "جمبري مقلي", sodium: "🔴 292 مجم", potassium: "🔴 191 مجم", phosphorus: "🟡 185 مجم", portion: "85 جرام", category: "المأكولات البحرية", sodiumValue: 292, potassiumValue: 191, phosphorusValue: 185 },
+            { name: "جمبري مطبوخ", sodium: "🔴 805 مجم", potassium: "🟡 144 مجم", phosphorus: "🔴 260 مجم", portion: "85 جرام", category: "المأكولات البحرية", sodiumValue: 805, potassiumValue: 144, phosphorusValue: 260 },
+            { name: "تونة معبأة بالزيت", sodium: "🔴 301 مجم", potassium: "🟡 176 مجم", phosphorus: "🔴 264 مجم", portion: "85 جرام", category: "المأكولات البحرية", sodiumValue: 301, potassiumValue: 176, phosphorusValue: 264 },
+            { name: "تونة معبأة بالماء", sodium: "🔴 287 مجم", potassium: "🔴 201 مجم", phosphorus: "🟡 139 مجم", portion: "85 جرام", category: "المأكولات البحرية", sodiumValue: 287, potassiumValue: 201, phosphorusValue: 139 },
+            { name: "سردين معلب بزيت الصويا", sodium: "🟢 121 مجم", potassium: "🟢 95 مجم", phosphorus: "🟡 118 مجم", portion: "2 سمكة", category: "المأكولات البحرية", sodiumValue: 121, potassiumValue: 95, phosphorusValue: 118 },
+
+            // الحبوب والخبز والمعكرونة (19 صنفًا)
+            { name: "خبز الباغل", sodium: "🔴 470 مجم", potassium: "🟢 79 مجم", phosphorus: "🟢 91 مجم", portion: "1 حبة متوسطة", category: "الحبوب والخبز والمعكرونة", sodiumValue: 470, potassiumValue: 79, phosphorusValue: 91 },
+            { name: "خبز الجاودار", sodium: "🟢 211 مجم", potassium: "🟢 53 مجم", phosphorus: "🟢 40 مجم", portion: "1 شريحة", category: "الحبوب والخبز والمعكرونة", sodiumValue: 211, potassiumValue: 53, phosphorusValue: 40 },
+            { name: "خبز أبيض", sodium: "🟢 123 مجم", potassium: "🟢 26 مجم", phosphorus: "🟢 26 مجم", portion: "1 شريحة", category: "الحبوب والخبز والمعكرونة", sodiumValue: 123, potassiumValue: 26, phosphorusValue: 26 },
+            { name: "خبز القمح الكامل", sodium: "🟢 132 مجم", potassium: "🟢 69 مجم", phosphorus: "🟢 57 مجم", portion: "1 شريحة", category: "الحبوب والخبز والمعكرونة", sodiumValue: 132, potassiumValue: 69, phosphorusValue: 57 },
+            { name: "بسكويت", sodium: "🟢 275 مجم", potassium: "🟢 55 مجم", phosphorus: "🟡 136 مجم", portion: "1 حبة متوسطة", category: "الحبوب والخبز والمعكرونة", sodiumValue: 275, potassiumValue: 55, phosphorusValue: 136 },
+            { name: "كعك إنجليزي", sodium: "🟢 206 مجم", potassium: "🟢 62 مجم", phosphorus: "🟢 52 مجم", portion: "1 حبة", category: "الحبوب والخبز والمعكرونة", sodiumValue: 206, potassiumValue: 62, phosphorusValue: 52 },
+            { name: "خبز الذرة", sodium: "🟢 463 مجم", potassium: "🟢 76 مجم", phosphorus: "🔴 224 مجم", portion: "59.5 جرام", category: "الحبوب والخبز والمعكرونة", sodiumValue: 463, potassiumValue: 76, phosphorusValue: 224 },
+            { name: "كسكس", sodium: "🟢 8 مجم", potassium: "🟢 91 مجم", phosphorus: "🟢 35 مجم", portion: "1 كوب", category: "الحبوب والخبز والمعكرونة", sodiumValue: 8, potassiumValue: 91, phosphorusValue: 35 },
+            { name: "معكرونة مطبوخة", sodium: "🟢 1 مجم", potassium: "🟢 44 مجم", phosphorus: "🟢 42 مجم", portion: "1 كوب", category: "الحبوب والخبز والمعكرونة", sodiumValue: 1, potassiumValue: 44, phosphorusValue: 42 },
+            { name: "خبز البيتا", sodium: "🟢 322 مجم", potassium: "🟢 62 مجم", phosphorus: "🟢 66 مجم", portion: "1 رغيف صغير", category: "الحبوب والخبز والمعكرونة", sodiumValue: 322, potassiumValue: 62, phosphorusValue: 66 },
+            { name: "فطائر البانكيك", sodium: "🟢 510 مجم", potassium: "🟢 132 مجم", phosphorus: "🟡 155 مجم", portion: "3 فطائر صغيرة", category: "الحبوب والخبز والمعكرونة", sodiumValue: 510, potassiumValue: 132, phosphorusValue: 155 },
+            { name: "فشار (مملح)", sodium: "🔴 194 مجم", potassium: "🟢 93 مجم", phosphorus: "🟡 100 مجم", portion: "1 كوب", category: "الحبوب والخبز والمعكرونة", sodiumValue: 194, potassiumValue: 93, phosphorusValue: 100 },
+            { name: "فشار (غير مملح)", sodium: "🟢 1 مجم", potassium: "🟢 93 مجم", phosphorus: "🟡 100 مجم", portion: "1 كوب", category: "الحبوب والخبز والمعكرونة", sodiumValue: 1, potassiumValue: 93, phosphorusValue: 100 },
+            { name: "أرز أبيض مطبوخ", sodium: "🟢 1 مجم", potassium: "🟢 55 مجم", phosphorus: "🟢 68 مجم", portion: "1 كوب", category: "الحبوب والخبز والمعكرونة", sodiumValue: 1, potassiumValue: 55, phosphorusValue: 68 },
+            { name: "أرز بني مطبوخ", sodium: "🟢 2 مجم", potassium: "🟡 154 مجم", phosphorus: "🟡 150 مجم", portion: "1 كوب", category: "الحبوب والخبز والمعكرونة", sodiumValue: 2, potassiumValue: 154, phosphorusValue: 150 },
+            { name: "خبز التورتيلا", sodium: "🟢 364 مجم", potassium: "🟢 85 مجم", phosphorus: "🟡 104 مجم", portion: "1 حبة", category: "الحبوب والخبز والمعكرونة", sodiumValue: 364, potassiumValue: 85, phosphorusValue: 104 },
+            { name: "خبز الوافل", sodium: "🟢 383 مجم", potassium: "🟢 131 مجم", phosphorus: "🟡 185 مجم", portion: "1 قطعة", category: "الحبوب والخبز والمعكرونة", sodiumValue: 383, potassiumValue: 131, phosphorusValue: 185 },
+            { name: "خبز البرغل", sodium: "🟢 9 مجم", potassium: "🟡 124 مجم", phosphorus: "🟡 72 مجم", portion: "1 كوب", category: "الحبوب والخبز والمعكرونة", sodiumValue: 9, potassiumValue: 124, phosphorusValue: 72 },
+
+            // منتجات الألبان والبدائل (15 صنفًا)
+            { name: "جبنة الشيدر", sodium: "🔴 176 مجم", potassium: "🟢 27 مجم", phosphorus: "🔴 145 مجم", portion: "28 جرام", category: "منتجات الألبان والبدائل", sodiumValue: 176, potassiumValue: 27, phosphorusValue: 145 },
+            { name: "جبنة الكوتيج (1% دسم)", sodium: "🔴 406 مجم", potassium: "🟢 104 مجم", phosphorus: "🔴 159 مجم", portion: "1 كوب", category: "منتجات الألبان والبدائل", sodiumValue: 406, potassiumValue: 104, phosphorusValue: 159 },
+            { name: "كريمة الجبن", sodium: "🟢 45 مجم", potassium: "🟢 34 مجم", phosphorus: "🟢 30 مجم", portion: "2 ملعقة طعام", category: "منتجات الألبان والبدائل", sodiumValue: 45, potassiumValue: 34, phosphorusValue: 30 },
+            { name: "جبنة الموزاريلا", sodium: "🟢 106 مجم", potassium: "🟢 27 مجم", phosphorus: "🔴 131 مجم", portion: "28 جرام", category: "منتجات الألبان والبدائل", sodiumValue: 106, potassiumValue: 27, phosphorusValue: 131 },
+            { name: "جبنة بارميزان", sodium: "🔴 335 مجم", potassium: "🟢 26 مجم", phosphorus: "🔴 197 مجم", portion: "2 ملعقة طعام", category: "منتجات الألبان والبدائل", sodiumValue: 335, potassiumValue: 26, phosphorusValue: 197 },
+            { name: "جبنة سويسرية", sodium: "🟢 74 مجم", potassium: "🟢 31 مجم", phosphorus: "🔴 171 مجم", portion: "28 جرام", category: "منتجات الألبان والبدائل", sodiumValue: 74, potassiumValue: 31, phosphorusValue: 171 },
+            { name: "كريمة حامضة", sodium: "🟢 23 مجم", potassium: "🟢 44 مجم", phosphorus: "🟢 30 مجم", portion: "2 ملعقة طعام", category: "منتجات الألبان والبدائل", sodiumValue: 23, potassiumValue: 44, phosphorusValue: 30 },
+            { name: "زبادي يوناني (قليل الدسم)", sodium: "🟢 36 مجم", potassium: "🟢 141 مجم", phosphorus: "🔴 212 مجم", portion: "170 جرام", category: "منتجات الألبان والبدائل", sodiumValue: 36, potassiumValue: 141, phosphorusValue: 212 },
+            { name: "زبادي عادي (قليل الدسم)", sodium: "🟢 105 مجم", potassium: "🔴 398 مجم", phosphorus: "🔴 306 مجم", portion: "170 جرام", category: "منتجات الألبان والبدائل", sodiumValue: 105, potassiumValue: 398, phosphorusValue: 306 },
+            { name: "حليب (1% دسم)", sodium: "🟢 107 مجم", potassium: "🔴 366 مجم", phosphorus: "🔴 232 مجم", portion: "1 كوب", category: "منتجات الألبان والبدائل", sodiumValue: 107, potassiumValue: 366, phosphorusValue: 232 },
+            { name: "حليب (كامل الدسم)", sodium: "🟢 98 مجم", potassium: "🔴 322 مجم", phosphorus: "🔴 227 مجم", portion: "1 كوب", category: "منتجات الألبان والبدائل", sodiumValue: 98, potassiumValue: 322, phosphorusValue: 227 },
+            { name: "حليب الصويا", sodium: "🟢 124 مجم", potassium: "🔴 287 مجم", phosphorus: "🔴 253 مجم", portion: "1 كوب", category: "منتجات الألبان والبدائل", sodiumValue: 124, potassiumValue: 287, phosphorusValue: 253 },
+            { name: "حليب اللوز", sodium: "🟢 160 مجم", potassium: "🟢 64 مجم", phosphorus: "🟢 24 مجم", portion: "1 كوب", category: "منتجات الألبان والبدائل", sodiumValue: 160, potassiumValue: 64, phosphorusValue: 24 },
+            { name: "حليب الأرز", sodium: "🟢 91 مجم", potassium: "🟢 65 مجم", phosphorus: "🟢 57 مجم", portion: "1 كوب", category: "منتجات الألبان والبدائل", sodiumValue: 91, potassiumValue: 65, phosphorusValue: 57 },
+
+            // المقبلات والوجبات الخفيفة (15 صنفًا)
+            { name: "رقائق البطاطس", sodium: "🔴 149 مجم", potassium: "🟡 351 مجم", phosphorus: "🟡 87 مجم", portion: "28 جرام", category: "المقبلات والوجبات الخفيفة", sodiumValue: 149, potassiumValue: 351, phosphorusValue: 87 },
+            { name: "بطاطس مقلية", sodium: "🔴 282 مجم", potassium: "🔴 574 مجم", phosphorus: "🟡 125 مجم", portion: "10 قطع", category: "المقبلات والوجبات الخفيفة", sodiumValue: 282, potassiumValue: 574, phosphorusValue: 125 },
+            { name: "مقرمشات الجبن", sodium: "🔴 243 مجم", potassium: "🟢 35 مجم", phosphorus: "🟡 115 مجم", portion: "27 قطعة", category: "المقبلات والوجبات الخفيفة", sodiumValue: 243, potassiumValue: 35, phosphorusValue: 115 },
+            { name: "مقرمشات القمح الكامل", sodium: "🟢 135 مجم", potassium: "🟢 38 مجم", phosphorus: "🟡 103 مجم", portion: "5 قطع", category: "المقبلات والوجبات الخفيفة", sodiumValue: 135, potassiumValue: 38, phosphorusValue: 103 },
+            { name: "مقرمشات الذرة", sodium: "🔴 198 مجم", potassium: "🟢 26 مجم", phosphorus: "🟢 29 مجم", portion: "1 كوب", category: "المقبلات والوجبات الخفيفة", sodiumValue: 198, potassiumValue: 26, phosphorusValue: 29 },
+            { name: "مقرمشات الأرز", sodium: "🟢 29 مجم", potassium: "🟢 35 مجم", phosphorus: "🟢 35 مجم", portion: "2 قطعة", category: "المقبلات والوجبات الخفيفة", sodiumValue: 29, potassiumValue: 35, phosphorusValue: 35 },
+            { name: "مقرمشات البسكويت المملح", sodium: "🔴 230 مجم", potassium: "🟢 28 مجم", phosphorus: "🟢 21 مجم", portion: "5 قطع", category: "المقبلات والوجبات الخفيفة", sodiumValue: 230, potassiumValue: 28, phosphorusValue: 21 },
+            { name: "مقرمشات الجاودار", sodium: "🟢 157 مجم", potassium: "🟢 46 مجم", phosphorus: "🟢 39 مجم", portion: "2 قطعة", category: "المقبلات والوجبات الخفيفة", sodiumValue: 157, potassiumValue: 46, phosphorusValue: 39 },
+            { name: "مقرمشات القمح", sodium: "🟢 176 مجم", potassium: "🟢 50 مجم", phosphorus: "🟢 46 مجم", portion: "5 قطع", category: "المقبلات والوجبات الخفيفة", sodiumValue: 176, potassiumValue: 50, phosphorusValue: 46 },
+            { name: "مقرمشات البطاطس", sodium: "🔴 170 مجم", potassium: "🟢 60 مجم", phosphorus: "🟢 40 مجم", portion: "10 قطع", category: "المقبلات والوجبات الخفيفة", sodiumValue: 170, potassiumValue: 60, phosphorusValue: 40 },
+            { name: "مقرمشات الفشار", sodium: "🔴 200 مجم", potassium: "🟢 50 مجم", phosphorus: "🟢 30 مجم", portion: "1 كوب", category: "المقبلات والوجبات الخفيفة", sodiumValue: 200, potassiumValue: 50, phosphorusValue: 30 },
+            { name: "مقرمشات البقوليات", sodium: "🟢 120 مجم", potassium: "🟢 80 مجم", phosphorus: "🟢 50 مجم", portion: "28 جرام", category: "المقبلات والوجبات الخفيفة", sodiumValue: 120, potassiumValue: 80, phosphorusValue: 50 },
+            { name: "مقرمشات الخضار", sodium: "🟢 150 مجم", potassium: "🟢 70 مجم", phosphorus: "🟢 45 مجم", portion: "28 جرام", category: "المقبلات والوجبات الخفيفة", sodiumValue: 150, potassiumValue: 70, phosphorusValue: 45 },
+            { name: "مقرمشات البذور", sodium: "🟢 100 مجم", potassium: "🟢 90 مجم", phosphorus: "🟢 55 مجم", portion: "28 جرام", category: "المقبلات والوجبات الخفيفة", sodiumValue: 100, potassiumValue: 90, phosphorusValue: 55 },
+
+            // الحلويات والسكريات (15 صنفًا)
+            { name: "كيك الشوكولاتة", sodium: "🟢 339 مجم", potassium: "🟢 164 مجم", phosphorus: "🟡 173 مجم", portion: "1 قطعة", category: "الحلويات والسكريات", sodiumValue: 339, potassiumValue: 164, phosphorusValue: 173 },
+            { name: "كيك الفانيليا", sodium: "🟢 320 مجم", potassium: "🟢 68 مجم", phosphorus: "🟡 119 مجم", portion: "1 قطعة", category: "الحلويات والسكريات", sodiumValue: 320, potassiumValue: 68, phosphorusValue: 119 },
+            { name: "كيك الجبن", sodium: "🟢 214 مجم", potassium: "🟢 90 مجم", phosphorus: "🟡 107 مجم", portion: "1 قطعة", category: "الحلويات والسكريات", sodiumValue: 214, potassiumValue: 90, phosphorusValue: 107 },
+            { name: "كيك التفاح", sodium: "🟢 266 مجم", potassium: "🟢 75 مجم", phosphorus: "🟡 104 مجم", portion: "1 قطعة", category: "الحلويات والسكريات", sodiumValue: 266, potassiumValue: 75, phosphorusValue: 104 },
+            { name: "كيك الجزر", sodium: "🟢 284 مجم", potassium: "🟢 186 مجم", phosphorus: "🟡 146 مجم", portion: "1 قطعة", category: "الحلويات والسكريات", sodiumValue: 284, potassiumValue: 186, phosphorusValue: 146 },
+            { name: "كيك الموز", sodium: "🟢 298 مجم", potassium: "🟡 224 مجم", phosphorus: "🟡 155 مجم", portion: "1 قطعة", category: "الحلويات والسكريات", sodiumValue: 298, potassiumValue: 224, phosphorusValue: 155 },
+            { name: "كيك الشوكولاتة بالكريمة", sodium: "🟢 350 مجم", potassium: "🟢 180 مجم", phosphorus: "🟡 190 مجم", portion: "1 قطعة", category: "الحلويات والسكريات", sodiumValue: 350, potassiumValue: 180, phosphorusValue: 190 },
+            { name: "كيك الفانيليا بالكريمة", sodium: "🟢 330 مجم", potassium: "🟢 70 مجم", phosphorus: "🟡 125 مجم", portion: "1 قطعة", category: "الحلويات والسكريات", sodiumValue: 330, potassiumValue: 70, phosphorusValue: 125 },
+            { name: "كيك الجبن بالكريمة", sodium: "🟢 220 مجم", potassium: "🟢 95 مجم", phosphorus: "🟡 110 مجم", portion: "1 قطعة", category: "الحلويات والسكريات", sodiumValue: 220, potassiumValue: 95, phosphorusValue: 110 },
+            { name: "كيك التفاح بالكريمة", sodium: "🟢 270 مجم", potassium: "🟢 80 مجم", phosphorus: "🟡 108 مجم", portion: "1 قطعة", category: "الحلويات والسكريات", sodiumValue: 270, potassiumValue: 80, phosphorusValue: 108 },
+            { name: "كيك الجزر بالكريمة", sodium: "🟢 290 مجم", potassium: "🟢 190 مجم", phosphorus: "🟡 150 مجم", portion: "1 قطعة", category: "الحلويات والسكريات", sodiumValue: 290, potassiumValue: 190, phosphorusValue: 150 },
+            { name: "كيك الموز بالكريمة", sodium: "🟢 300 مجم", potassium: "🟡 230 مجم", phosphorus: "🟡 160 مجم", portion: "1 قطعة", category: "الحلويات والسكريات", sodiumValue: 300, potassiumValue: 230, phosphorusValue: 160 },
+            { name: "كيك الشوكولاتة بالآيس كريم", sodium: "🟢 360 مجم", potassium: "🟢 190 مجم", phosphorus: "🟡 200 مجم", portion: "1 قطعة", category: "الحلويات والسكريات", sodiumValue: 360, potassiumValue: 190, phosphorusValue: 200 },
+            { name: "كيك الفانيليا بالآيس كريم", sodium: "🟢 340 مجم", potassium: "🟢 75 مجم", phosphorus: "🟡 130 مجم", portion: "1 قطعة", category: "الحلويات والسكريات", sodiumValue: 340, potassiumValue: 75, phosphorusValue: 130 },
+
+            // المشروبات (15 صنفًا)
+            { name: "ماء الصودا", sodium: "🟢 2 مجم", potassium: "🟢 0 مجم", phosphorus: "🟢 0 مجم", portion: "1 كوب", category: "المشروبات", sodiumValue: 2, potassiumValue: 0, phosphorusValue: 0 },
+            { name: "ماء الصودا بالنكهة", sodium: "🟢 35 مجم", potassium: "🟢 0 مجم", phosphorus: "🟢 0 مجم", portion: "1 كوب", category: "المشروبات", sodiumValue: 35, potassiumValue: 0, phosphorusValue: 0 },
+            { name: "ماء الصودا بالليمون", sodium: "🟢 25 مجم", potassium: "🟢 0 مجم", phosphorus: "🟢 0 مجم", portion: "1 كوب", category: "المشروبات", sodiumValue: 25, potassiumValue: 0, phosphorusValue: 0 },
+            { name: "ماء الصودا بالبرتقال", sodium: "🟢 30 مجم", potassium: "🟢 0 مجم", phosphorus: "🟢 0 مجم", portion: "1 كوب", category: "المشروبات", sodiumValue: 30, potassiumValue: 0, phosphorusValue: 0 },
+            { name: "ماء الصودا بالتفاح", sodium: "🟢 20 مجم", potassium: "🟢 0 مجم", phosphorus: "🟢 0 مجم", portion: "1 كوب", category: "المشروبات", sodiumValue: 20, potassiumValue: 0, phosphorusValue: 0 },
+            { name: "ماء الصودا بالفراولة", sodium: "🟢 25 مجم", potassium: "🟢 0 مجم", phosphorus: "🟢 0 مجم", portion: "1 كوب", category: "المشروبات", sodiumValue: 25, potassiumValue: 0, phosphorusValue: 0 },
+            { name: "ماء الصودا بالعنب", sodium: "🟢 30 مجم", potassium: "🟢 0 مجم", phosphorus: "🟢 0 مجم", portion: "1 كوب", category: "المشروبات", sodiumValue: 30, potassiumValue: 0, phosphorusValue: 0 },
+            { name: "ماء الصودا بالأناناس", sodium: "🟢 25 مجم", potassium: "🟢 0 مجم", phosphorus: "🟢 0 مجم", portion: "1 كوب", category: "المشروبات", sodiumValue: 25, potassiumValue: 0, phosphorusValue: 0 },
+            { name: "ماء الصودا بالمانجو", sodium: "🟢 30 مجم", potassium: "🟢 0 مجم", phosphorus: "🟢 0 مجم", portion: "1 كوب", category: "المشروبات", sodiumValue: 30, potassiumValue: 0, phosphorusValue: 0 },
+            { name: "ماء الصودا بالخوخ", sodium: "🟢 25 مجم", potassium: "🟢 0 مجم", phosphorus: "🟢 0 مجم", portion: "1 كوب", category: "المشروبات", sodiumValue: 25, potassiumValue: 0, phosphorusValue: 0 },
+            { name: "ماء الصودا بالكمثرى", sodium: "🟢 20 مجم", potassium: "🟢 0 مجم", phosphorus: "🟢 0 مجم", portion: "1 كوب", category: "المشروبات", sodiumValue: 20, potassiumValue: 0, phosphorusValue: 0 },
+            { name: "ماء الصودا بالكرز", sodium: "🟢 25 مجم", potassium: "🟢 0 مجم", phosphorus: "🟢 0 مجم", portion: "1 كوب", category: "المشروبات", sodiumValue: 25, potassiumValue: 0, phosphorusValue: 0 },
+            { name: "ماء الصودا بالتوت", sodium: "🟢 30 مجم", potassium: "🟢 0 مجم", phosphorus: "🟢 0 مجم", portion: "1 كوب", category: "المشروبات", sodiumValue: 30, potassiumValue: 0, phosphorusValue: 0 },
+            { name: "ماء الصودا بالليموناضة", sodium: "🟢 25 مجم", potassium: "🟢 0 مجم", phosphorus: "🟢 0 مجم", portion: "1 كوب", category: "المشروبات", sodiumValue: 25, potassiumValue: 0, phosphorusValue: 0 },
+
+            // الصلصات والتوابل والزيوت (15 صنفًا)
+            { name: "صلصة الطماطم", sodium: "🔴 642 مجم", potassium: "🔴 728 مجم", phosphorus: "🟡 67 مجم", portion: "1/2 كوب", category: "الصلصات والتوابل والزيوت", sodiumValue: 642, potassiumValue: 728, phosphorusValue: 67 },
+            { name: "صلصة الصويا", sodium: "🔴 1006 مجم", potassium: "🟡 70 مجم", phosphorus: "🟢 34 مجم", portion: "1 ملعقة طعام", category: "الصلصات والتوابل والزيوت", sodiumValue: 1006, potassiumValue: 70, phosphorusValue: 34 },
+            { name: "صلصة الصويا قليلة الصوديوم", sodium: "🟢 533 مجم", potassium: "🟢 64 مجم", phosphorus: "🟢 34 مجم", portion: "1 ملعقة طعام", category: "الصلصات والتوابل والزيوت", sodiumValue: 533, potassiumValue: 64, phosphorusValue: 34 },
+            { name: "مايونيز", sodium: "🟢 78 مجم", potassium: "🟢 4 مجم", phosphorus: "🟢 9 مجم", portion: "1 ملعقة طعام", category: "الصلصات والتوابل والزيوت", sodiumValue: 78, potassiumValue: 4, phosphorusValue: 9 },
+            { name: "مايونيز قليل الدسم", sodium: "🟢 109 مجم", potassium: "🟢 3 مجم", phosphorus: "🟢 3 مجم", portion: "1 ملعقة طعام", category: "الصلصات والتوابل والزيوت", sodiumValue: 109, potassiumValue: 3, phosphorusValue: 3 },
+            { name: "خردل", sodium: "🟢 57 مجم", potassium: "🟢 18 مجم", phosphorus: "🟢 15 مجم", portion: "1 ملعقة طعام", category: "الصلصات والتوابل والزيوت", sodiumValue: 57, potassiumValue: 18, phosphorusValue: 15 },
+            { name: "كاتشب", sodium: "🟢 154 مجم", potassium: "🟢 107 مجم", phosphorus: "🟢 13 مجم", portion: "1 ملعقة طعام", category: "الصلصات والتوابل والزيوت", sodiumValue: 154, potassiumValue: 107, phosphorusValue: 13 },
+            { name: "كاتشب قليل الصوديوم", sodium: "🟢 3 مجم", potassium: "🟢 107 مجم", phosphorus: "🟢 13 مجم", portion: "1 ملعقة طعام", category: "الصلصات والتوابل والزيوت", sodiumValue: 3, potassiumValue: 107, phosphorusValue: 13 },
+            { name: "صوص باربيكيو", sodium: "🔴 322 مجم", potassium: "🟢 71 مجم", phosphorus: "🟢 8 مجم", portion: "2 ملعقة طعام", category: "الصلصات والتوابل والزيوت", sodiumValue: 322, potassiumValue: 71, phosphorusValue: 8 },
+            { name: "صوص باربيكيو قليل الصوديوم", sodium: "🟢 102 مجم", potassium: "🟢 71 مجم", phosphorus: "🟢 8 مجم", portion: "2 ملعقة طعام", category: "الصلصات والتوابل والزيوت", sodiumValue: 102, potassiumValue: 71, phosphorusValue: 8 },
+            { name: "صوص السلطة الإيطالي", sodium: "🔴 485 مجم", potassium: "🟢 7 مجم", phosphorus: "🟢 1 مجم", portion: "2 ملعقة طعام", category: "الصلصات والتوابل والزيوت", sodiumValue: 485, potassiumValue: 7, phosphorusValue: 1 },
+            { name: "صوص السلطة الإيطالي قليل الصوديوم", sodium: "🟢 5 مجم", potassium: "🟢 7 مجم", phosphorus: "🟢 1 مجم", portion: "2 ملعقة طعام", category: "الصلصات والتوابل والزيوت", sodiumValue: 5, potassiumValue: 7, phosphorusValue: 1 },
+            { name: "صوص السلطة الرانش", sodium: "🔴 336 مجم", potassium: "🟢 25 مجم", phosphorus: "🟢 22 مجم", portion: "2 ملعقة طعام", category: "الصلصات والتوابل والزيوت", sodiumValue: 336, potassiumValue: 25, phosphorusValue: 22 },
+            { name: "صوص السلطة الرانش قليل الصوديوم", sodium: "🟢 105 مجم", potassium: "🟢 25 مجم", phosphorus: "🟢 22 مجم", portion: "2 ملعقة طعام", category: "الصلصات والتوابل والزيوت", sodiumValue: 105, potassiumValue: 25, phosphorusValue: 22 }
+        ];
+
+        // متغيرات لحساب الحصص اليومية
+        let selectedFoods = [];
+
+        // دالة للكشف عن الوضع (جوال أو لابتوب)
+        function isDesktopMode() {
+            return window.matchMedia('(min-width: 768px)').matches;
+        }
+
+        // دالة إظهار القسم المحدد
+        function showSection(sectionId) {
+            // إخفاء جميع الأقسام
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // إزالة النشط من جميع الروابط
+            document.querySelectorAll('.mobile-nav a, .desktop-nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // إظهار القسم المحدد في كلا التصميمين
+            const sections = document.querySelectorAll(`#${sectionId}`);
+            sections.forEach(section => {
+                section.classList.add('active');
+            });
+
+            // إضافة النشط للرابط المحدد
+            event.target.classList.add('active');
+
+            // إذا كان القسم هو البحث، عرض جميع الأطعمة
+            if (sectionId === 'searchSection') {
+                const resultsInfoMobile = document.getElementById("resultsInfoMobile");
+                const resultsInfoDesktop = document.getElementById("resultsInfoDesktop");
+
+                if (resultsInfoMobile) {
+                    resultsInfoMobile.textContent = "جميع الأطعمة (" + foods.length + " صنف)";
+                    displayResults(foods, 'resultsTableMobile');
+                }
+
+                if (resultsInfoDesktop) {
+                    resultsInfoDesktop.textContent = "جميع الأطعمة (" + foods.length + " صنف)";
+                    displayResults(foods, 'resultsTableDesktop');
+                }
+            }
+        }
+
+        // البحث عن الطعام
+        function searchFood() {
+            const isDesktop = isDesktopMode();
+            const queryElement = isDesktop ? document.getElementById("searchInputDesktop") : document.getElementById("searchInputMobile");
+            const query = queryElement ? queryElement.value.trim().toLowerCase() : "";
+
+            const resultsTableBodyMobile = document.querySelector("#resultsTableMobile tbody");
+            const resultsTableBodyDesktop = document.querySelector("#resultsTableDesktop tbody");
+            const resultsInfoMobile = document.getElementById("resultsInfoMobile");
+            const resultsInfoDesktop = document.getElementById("resultsInfoDesktop");
+
+            if (resultsTableBodyMobile) resultsTableBodyMobile.innerHTML = "";
+            if (resultsTableBodyDesktop) resultsTableBodyDesktop.innerHTML = "";
+
+            if (query === "") {
+                if (resultsInfoMobile) resultsInfoMobile.textContent = "الرجاء إدخال اسم الطعام للبحث!";
+                if (resultsInfoDesktop) resultsInfoDesktop.textContent = "الرجاء إدخال اسم الطعام للبحث!";
+                return;
+            }
+
+            // تصفية النتائج
+            const results = foods.filter(food => food.name.toLowerCase().includes(query));
+
+            if (results.length === 0) {
+                if (resultsInfoMobile) resultsInfoMobile.textContent = "لا توجد نتائج للبحث: " + query;
+                if (resultsInfoDesktop) resultsInfoDesktop.textContent = "لا توجد نتائج للبحث: " + query;
+                return;
+            }
+
+            // عرض النتائج
+            if (resultsInfoMobile) resultsInfoMobile.textContent = `تم العثور على ${results.length} نتيجة للبحث: "${query}"`;
+            if (resultsInfoDesktop) resultsInfoDesktop.textContent = `تم العثور على ${results.length} نتيجة للبحث: "${query}"`;
+
+            if (resultsTableBodyMobile) displayResults(results, 'resultsTableMobile');
+            if (resultsTableBodyDesktop) displayResults(results, 'resultsTableDesktop');
+        }
+
+        // فلترة حسب التصنيف
+        function filterByCategory() {
+            const isDesktop = isDesktopMode();
+            const categoryElement = isDesktop ? document.getElementById("categoryFilterDesktop") : document.getElementById("categoryFilterMobile");
+            const category = categoryElement ? categoryElement.value : "all";
+
+            const resultsInfoMobile = document.getElementById("resultsInfoMobile");
+            const resultsInfoDesktop = document.getElementById("resultsInfoDesktop");
+
+            if (category === "all") {
+                if (resultsInfoMobile) resultsInfoMobile.textContent = "جميع الأطعمة (" + foods.length + " صنف)";
+                if (resultsInfoDesktop) resultsInfoDesktop.textContent = "جميع الأطعمة (" + foods.length + " صنف)";
+                displayResults(foods, 'resultsTableMobile');
+                displayResults(foods, 'resultsTableDesktop');
+            } else {
+                const results = foods.filter(food => food.category === category);
+                if (resultsInfoMobile) resultsInfoMobile.textContent = `الأطعمة في تصنيف "${category}" (${results.length} صنف)`;
+                if (resultsInfoDesktop) resultsInfoDesktop.textContent = `الأطعمة في تصنيف "${category}" (${results.length} صنف)`;
+                displayResults(results, 'resultsTableMobile');
+                displayResults(results, 'resultsTableDesktop');
+            }
+        }
+
+        // فلترة حسب العنصر الغذائي
+        function filterByNutrient() {
+            const isDesktop = isDesktopMode();
+            const nutrientElement = isDesktop ? document.getElementById("nutrientFilterDesktop") : document.getElementById("nutrientFilterMobile");
+            const levelElement = isDesktop ? document.getElementById("levelFilterDesktop") : document.getElementById("levelFilterMobile");
+
+            const nutrient = nutrientElement ? nutrientElement.value : "all";
+            const level = levelElement ? levelElement.value : "all";
+
+            filterFoods(nutrient, level);
+        }
+
+        // فلترة حسب المستوى
+        function filterByLevel() {
+            const isDesktop = isDesktopMode();
+            const nutrientElement = isDesktop ? document.getElementById("nutrientFilterDesktop") : document.getElementById("nutrientFilterMobile");
+            const levelElement = isDesktop ? document.getElementById("levelFilterDesktop") : document.getElementById("levelFilterMobile");
+
+            const nutrient = nutrientElement ? nutrientElement.value : "all";
+            const level = levelElement ? levelElement.value : "all";
+
+            filterFoods(nutrient, level);
+        }
+
+        // فلترة الأطعمة بناءً على العنصر الغذائي والمستوى
+        function filterFoods(nutrient, level) {
+            const resultsInfoMobile = document.getElementById("resultsInfoMobile");
+            const resultsInfoDesktop = document.getElementById("resultsInfoDesktop");
+
+            if (nutrient === "all" && level === "all") {
+                if (resultsInfoMobile) resultsInfoMobile.textContent = "جميع الأطعمة (" + foods.length + " صنف)";
+                if (resultsInfoDesktop) resultsInfoDesktop.textContent = "جميع الأطعمة (" + foods.length + " صنف)";
+                displayResults(foods, 'resultsTableMobile');
+                displayResults(foods, 'resultsTableDesktop');
+                return;
+            }
+
+            let results = foods;
+
+            if (nutrient !== "all") {
+                const nutrientKey = nutrient === "sodium" ? "sodium" : nutrient === "potassium" ? "potassium" : "phosphorus";
+                const levelEmoji = level === "low" ? "🟢" : level === "medium" ? "🟡" : "🔴";
+                results = results.filter(food => food[nutrientKey].includes(levelEmoji));
+            }
+
+            if (level !== "all" && nutrient === "all") {
+                const levelEmoji = level === "low" ? "🟢" : level === "medium" ? "🟡" : "🔴";
+                results = results.filter(food => {
+                    return food.sodium.includes(levelEmoji) ||
+                           food.potassium.includes(levelEmoji) ||
+                           food.phosphorus.includes(levelEmoji);
+                });
+            }
+
+            if (resultsInfoMobile) resultsInfoMobile.textContent = `نتائج الفلترة (${results.length} صنف)`;
+            if (resultsInfoDesktop) resultsInfoDesktop.textContent = `نتائج الفلترة (${results.length} صنف)`;
+
+            displayResults(results, 'resultsTableMobile');
+            displayResults(results, 'resultsTableDesktop');
+        }
+
+        // عرض النتائج في الجدول
+        function displayResults(results, tableId) {
+            const resultsTableBody = document.querySelector(`#${tableId} tbody`);
+            if (!resultsTableBody) return;
+
+            resultsTableBody.innerHTML = "";
+
+            results.forEach(food => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>
+                        <div class="food-name">${food.name}</div>
+                        <div class="food-portion">${food.portion}</div>
+                    </td>
+                    <td>${food.sodium}</td>
+                    <td>${food.potassium}</td>
+                    <td>${food.phosphorus}</td>
+                    <td><span class="category-badge">${food.category}</span></td>
+                    <td><button onclick="addToCalculator('${food.name}')">إضافة</button></td>
+                `;
+                resultsTableBody.appendChild(row);
+            });
+        }
+
+        // إضافة الطعام إلى الحاسبة
+        function addToCalculator(foodName) {
+            const food = foods.find(f => f.name === foodName);
+            if (food) {
+                selectedFoods.push(food);
+                updateSelectedFoodsList();
+                alert(`تم إضافة ${foodName} إلى الحاسبة`);
+            }
+        }
+
+        // تحديث قائمة الأطعمة المختارة
+        function updateSelectedFoodsList() {
+            const isDesktop = isDesktopMode();
+            const selectedFoodsListElement = isDesktop ? document.getElementById("selectedFoodsListDesktop") : document.getElementById("selectedFoodsListMobile");
+
+            if (selectedFoodsListElement) {
+                selectedFoodsListElement.innerHTML = "";
+                if (selectedFoods.length === 0) {
+                    selectedFoodsListElement.innerHTML = "<p>لم يتم إضافة أي أطعمة بعد</p>";
+                } else {
+                    selectedFoods.forEach((food, index) => {
+                        const foodItem = document.createElement("div");
+                        foodItem.className = "selected-food-item";
+                        foodItem.innerHTML = `
+                            <span>${food.name}</span>
+                            <button class="remove-btn" onclick="removeFromCalculator(${index})">إزالة</button>
+                        `;
+                        selectedFoodsListElement.appendChild(foodItem);
+                    });
+                }
+            }
+
+            // تحديث كلا التصميمين للتوافق
+            const selectedFoodsListMobile = document.getElementById("selectedFoodsListMobile");
+            const selectedFoodsListDesktop = document.getElementById("selectedFoodsListDesktop");
+            if (selectedFoodsListMobile) {
+                selectedFoodsListMobile.innerHTML = selectedFoodsListElement ? selectedFoodsListElement.innerHTML : "<p>لم يتم إضافة أي أطعمة بعد</p>";
+            }
+            if (selectedFoodsListDesktop && !isDesktop) {
+                selectedFoodsListDesktop.innerHTML = selectedFoodsListElement ? selectedFoodsListElement.innerHTML : "<p>لم يتم إضافة أي أطعمة بعد</p>";
+            }
+        }
+
+        // إزالة الطعام من الحاسبة
+        function removeFromCalculator(index) {
+            selectedFoods.splice(index, 1);
+            updateSelectedFoodsList();
+        }
+
+        // حساب المجموع اليومي
+        function calculateDailyIntake() {
+            const isDesktop = isDesktopMode();
+            const maxSodiumElement = isDesktop ? document.getElementById("maxSodiumDesktop") : document.getElementById("maxSodiumMobile");
+            const maxPotassiumElement = isDesktop ? document.getElementById("maxPotassiumDesktop") : document.getElementById("maxPotassiumMobile");
+            const maxPhosphorusElement = isDesktop ? document.getElementById("maxPhosphorusDesktop") : document.getElementById("maxPhosphorusMobile");
+
+            const maxSodium = parseInt(maxSodiumElement ? maxSodiumElement.value : 2000) || 2000;
+            const maxPotassium = parseInt(maxPotassiumElement ? maxPotassiumElement.value : 2000) || 2000;
+            const maxPhosphorus = parseInt(maxPhosphorusElement ? maxPhosphorusElement.value : 1000) || 1000;
+
+            let totalSodium = 0;
+            let totalPotassium = 0;
+            let totalPhosphorus = 0;
+
+            selectedFoods.forEach(food => {
+                totalSodium += food.sodiumValue;
+                totalPotassium += food.potassiumValue;
+                totalPhosphorus += food.phosphorusValue;
+            });
+
+            const sodiumPercentage = (totalSodium / maxSodium) * 100;
+            const potassiumPercentage = (totalPotassium / maxPotassium) * 100;
+            const phosphorusPercentage = (totalPhosphorus / maxPhosphorus) * 100;
+
+            const resultHTML = `
+                <p><strong>المجموع اليومي:</strong></p>
+                <p>الصوديوم: ${totalSodium} مجم (${sodiumPercentage.toFixed(1)}% من الحد الأقصى)</p>
+                <p>البوتاسيوم: ${totalPotassium} مجم (${potassiumPercentage.toFixed(1)}% من الحد الأقصى)</p>
+                <p>الفوسفور: ${totalPhosphorus} مجم (${phosphorusPercentage.toFixed(1)}% من الحد الأقصى)</p>
+                <p><strong>عدد الأطعمة المضافة: ${selectedFoods.length}</strong></p>
+            `;
+
+            const intakeResultMobile = document.getElementById("intakeResultMobile");
+            const intakeResultDesktop = document.getElementById("intakeResultDesktop");
+
+            if (intakeResultMobile) intakeResultMobile.innerHTML = resultHTML;
+            if (intakeResultDesktop) intakeResultDesktop.innerHTML = resultHTML;
+        }
+
+        // البحث عند الضغط على Enter
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInputMobile = document.getElementById("searchInputMobile");
+            const searchInputDesktop = document.getElementById("searchInputDesktop");
+
+            if (searchInputMobile) {
+                searchInputMobile.addEventListener("keyup", function(event) {
+                    if (event.key === "Enter") {
+                        searchFood();
+                    }
+                });
+            }
+
+            if (searchInputDesktop) {
+                searchInputDesktop.addEventListener("keyup", function(event) {
+                    if (event.key === "Enter") {
+                        searchFood();
+                    }
+                });
+            }
+
+            // عرض جميع الأطعمة عند تحميل الصفحة
+            const resultsInfoMobile = document.getElementById("resultsInfoMobile");
+            const resultsInfoDesktop = document.getElementById("resultsInfoDesktop");
+
+            if (resultsInfoMobile) resultsInfoMobile.textContent = "جميع الأطعمة (" + foods.length + " صنف)";
+            if (resultsInfoDesktop) resultsInfoDesktop.textContent = "جميع الأطعمة (" + foods.length + " صنف)";
+
+            displayResults(foods, 'resultsTableMobile');
+            displayResults(foods, 'resultsTableDesktop');
+            updateSelectedFoodsList();
+
+            // إعادة تحميل الدوال عند تغيير حجم الشاشة لدعم التبديل بين الجوال واللابتوب
+            window.addEventListener('resize', function() {
+                // إعادة عرض النتائج الحالية إذا لزم الأمر
+                const currentSection = document.querySelector('.section.active');
+                if (currentSection && currentSection.id === 'searchSection') {
+                    // يمكن إعادة استدعاء filterByCategory أو شيء مشابه إذا كان هناك فلتر نشط
+                    filterByCategory(); // افتراضياً، أعد عرض جميع
+                }
+            });
+        });
+    </script>
+</body>
+</html>
